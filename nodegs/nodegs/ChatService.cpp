@@ -134,7 +134,7 @@ namespace OwLibSV
 		int strSize = sizeof(int);
 		for(int i = 0; i < chatsize; i++)
 		{
-			ChatData chat = (*datas)[i];
+			ChatData chat = datas->at(i);
 			strSize += sizeof(int) * 2 + CStrA::GetStringCapacity(chat.m_text);
 		}
 		Binary binary;
@@ -142,7 +142,7 @@ namespace OwLibSV
 		binary.WriteInt(chatsize);
 		for(int i = 0; i < chatsize; i++)
 		{
-			ChatData chat = (*datas)[i];
+			ChatData chat = datas->at(i);
             binary.WriteInt(chat.m_userID);
 			binary.WriteChar((char)chat.m_type);
 			binary.WriteString(chat.m_text);

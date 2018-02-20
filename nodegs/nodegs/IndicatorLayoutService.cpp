@@ -240,7 +240,7 @@ namespace OwLibSV
 		int strSize = sizeof(int);
 		for(int i = 0; i < size; i++)
 		{
-			IndicatorLayout layout = (*layouts)[i];
+			IndicatorLayout layout = layouts->at(i);
 			strSize += sizeof(int) * 3 + CStrA::GetStringCapacity(layout.m_layoutID) + CStrA::GetStringCapacity(layout.m_name) + CStrA::GetStringCapacity(layout.m_text);
 		}
 		strSize += 100;
@@ -249,7 +249,7 @@ namespace OwLibSV
 		binary.WriteInt(size);
 		for(int i = 0; i < size; i++)
 		{
-			IndicatorLayout layout = (*layouts)[i];
+			IndicatorLayout layout = layouts->at(i);
 			binary.WriteString(layout.m_layoutID);
             binary.WriteInt(layout.m_userID);
 			binary.WriteString(layout.m_name);
@@ -263,7 +263,7 @@ namespace OwLibSV
 		int userID = 0;
 		if(size > 0)
 		{
-			userID = (*layouts)[0].m_userID;
+			userID = layouts->at(0).m_userID;
 		}
 		else
 		{
