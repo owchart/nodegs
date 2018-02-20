@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="owchart">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/owchart.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
