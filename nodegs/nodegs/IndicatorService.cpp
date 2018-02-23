@@ -273,7 +273,7 @@ namespace OwLibSV
 		int strSize = sizeof(int);
 		for(int i = 0; i < size; i++)
 		{
-			Indicator indicator = indicators->at(i);
+			Indicator indicator = (*indicators)[i];
 			strSize += sizeof(int) * 7 + CStrA::GetStringCapacity(indicator.m_indicatorID) + CStrA::GetStringCapacity(indicator.m_category) + CStrA::GetStringCapacity(indicator.m_coordinate)
 			+ CStrA::GetStringCapacity(indicator.m_description) + CStrA::GetStringCapacity(indicator.m_name) 
 			+ CStrA::GetStringCapacity(indicator.m_parameters) + CStrA::GetStringCapacity(indicator.m_password) + CStrA::GetStringCapacity(indicator.m_specialCoordinate)
@@ -285,7 +285,7 @@ namespace OwLibSV
 		binary.WriteInt(size);
 		for(int i = 0; i < size; i++)
 		{
-			Indicator indicator = indicators->at(i);
+			Indicator indicator = (*indicators)[i];
             binary.WriteString(indicator.m_indicatorID);
             binary.WriteInt(indicator.m_userID);
 			binary.WriteString(indicator.m_category);
@@ -309,7 +309,7 @@ namespace OwLibSV
 		int userID = 0; 
 		if(size > 0)
 		{
-			userID = indicators->at(0).m_userID;
+			userID = (*indicators)[0].m_userID;
 		}
 		else
 		{

@@ -222,7 +222,7 @@ namespace OwLibSV
 		int strSize = sizeof(int);
 		for(int i = 0; i < size; i++)
 		{
-			Security security = securities->at(i);
+			Security security = (*securities)[i];
 			if(message->m_functionID == FUNCTIONID_SECURITY_GETSECURITIES)
 			{
 				strSize += sizeof(int) * 2 + CStrA::GetStringCapacity(security.m_code) + CStrA::GetStringCapacity(security.m_name)
@@ -239,7 +239,7 @@ namespace OwLibSV
 		binary.WriteInt(size);
 		for(int i = 0; i < size; i++)
 		{
-			Security security = securities->at(i);
+			Security security = (*securities)[i];
 			binary.WriteString(security.m_code);
 			if(message->m_functionID == FUNCTIONID_SECURITY_GETSECURITIES)
 			{
