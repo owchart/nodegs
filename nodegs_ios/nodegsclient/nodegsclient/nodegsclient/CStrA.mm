@@ -16,7 +16,7 @@ namespace OwLibCT
     
     double CStrA::ConvertStrToDouble(const wchar_t *str)
     {
-        return wcstof(str, 0);
+        return wcstod(str, 0);
     }
 
     int CStrA::ConvertStrToInt(const wchar_t *str)
