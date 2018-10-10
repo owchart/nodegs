@@ -11,12 +11,13 @@
 #ifndef __TOOLTIP_H__
 #define __TOOLTIP_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Label\\Label.h"
 
 namespace OwLib
 {
-	class ToolTipA : public LabelA
+	class  ToolTipA : public LabelA
 	{
 	private:
 		int m_timerID;
@@ -41,15 +42,15 @@ namespace OwLib
 		virtual bool UseAnimation();
 		virtual void SetUseAnimation(bool useAnimation);
 	public:
-		virtual String GetControlType();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual wstring GetControlType();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual void Hide();
 		virtual void OnLoad();
 		virtual void OnTimer(int timerID);
 		virtual void OnVisibleChanged();
 		virtual void Show();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 

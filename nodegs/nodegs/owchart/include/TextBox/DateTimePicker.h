@@ -12,6 +12,7 @@
 #ifndef __DATETIMEPICKER_H__
 #define __DATETIMEPICKER_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "TextBox.h"
 #include "..\\Button\\Button.h"
@@ -21,33 +22,36 @@
 
 namespace OwLib
 {
-	class DateTimePickerA : public TextBoxA
+	class  DateTimePickerA : public TextBoxA
 	{
 	protected:
 		CalendarA *m_calendar;
-		String m_customFormat;
+		wstring m_customFormat;
 		ButtonA *m_dropDownButton;
 		ControlMouseEvent m_dropDownButtonMouseDownEvent;
-		ControlEvent m_selectedTimeChangedEvent;
 		MenuA *m_dropDownMenu;
+		ControlEvent m_selectedTimeChangedEvent;
+		bool m_showTime;
 		static void DropDownButtonMouseDown(void *sender, const POINT& mp, MouseButtonsA button, int clicks, int delta, void *pInvoke);
 		static void SelectedTimeChanged(void *sender, void *pInvoke);
 	public:
 		DateTimePickerA();
 		virtual ~DateTimePickerA();
 		virtual CalendarA* GetCalendar();
-		virtual String GetCustomFormat();
-		virtual void SetCustomFormat(const String& customFormat);
+		virtual wstring GetCustomFormat();
+		virtual void SetCustomFormat(const wstring& customFormat);
 		virtual ButtonA* GetDropDownButton();
 		virtual MenuA* GetDropDownMenu();
+		virtual bool ShowTime();
+		virtual void SetShowTime(bool showTime);
 	public:
-		virtual String GetControlType();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual wstring GetControlType();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual void OnDropDownOpening();
 		virtual void OnLoad();
 		virtual void OnSelectedTimeChanged();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 		virtual void Update();
 	};
 }

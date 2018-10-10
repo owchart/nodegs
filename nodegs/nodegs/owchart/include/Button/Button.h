@@ -12,42 +12,43 @@
 #ifndef __BUTTON_H__
 #define __BUTTON_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Base\\CStr.h"
 
 namespace OwLib
 {
-	class ButtonA:public ControlA
+	class  ButtonA:public ControlA
 	{
 	protected:
-		String m_disabledBackImage;
-		String m_hoveredBackImage;
-		String m_pushedBackImage;
+		wstring m_disabledBackImage;
+		wstring m_hoveredBackImage;
+		wstring m_pushedBackImage;
 		ContentAlignmentA m_textAlign;
 	protected:
 		virtual _int64 GetPaintingBackColor();
-		virtual String GetPaintingBackImage();
+		virtual wstring GetPaintingBackImage();
 	public:
 		ButtonA();
 		virtual ~ButtonA();
-		virtual String GetDisabledBackImage();
-		virtual void SetDisabledBackImage(const String& disabledBackImage);
-		virtual String GetHoveredBackImage();
-		virtual void SetHoveredBackImage(const String& hoveredBackImage);
-		virtual String GetPushedBackImage();
-		virtual void SetPushedBackImage(const String& pushedBackImage);
+		virtual wstring GetDisabledBackImage();
+		virtual void SetDisabledBackImage(const wstring& disabledBackImage);
+		virtual wstring GetHoveredBackImage();
+		virtual void SetHoveredBackImage(const wstring& hoveredBackImage);
+		virtual wstring GetPushedBackImage();
+		virtual void SetPushedBackImage(const wstring& pushedBackImage);
 		virtual ContentAlignmentA GetTextAlign();
 		virtual void SetTextAlign(ContentAlignmentA textAlign);
 	public:
-		virtual String GetControlType();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual wstring GetControlType();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual void OnMouseDown(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnMouseEnter(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnMouseLeave(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnMouseUp(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnPaintForeground(CPaint *paint, const RECT& clipRect);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 

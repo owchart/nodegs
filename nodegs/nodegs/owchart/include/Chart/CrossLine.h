@@ -11,14 +11,15 @@
 #ifndef __CROSSLINE_H__
 #define __CROSSLINE_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "Enums.h"
 #include "CDiv.h"
 
 namespace OwLib
 {
-	class CDiv;
-	class CrossLine : CProperty
+	class  CDiv;
+	class  CrossLine : CProperty
 	{
 	protected:
 		bool m_allowUserPaint;
@@ -37,10 +38,10 @@ namespace OwLib
 		virtual _int64 GetLineColor();
 		virtual void SetLineColor(_int64 lineColor);
 	public:
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual void OnPaint(CPaint *paint, CDiv *div, const RECT& rect);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 #endif

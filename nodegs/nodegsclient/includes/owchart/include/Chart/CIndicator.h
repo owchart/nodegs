@@ -10,6 +10,7 @@
 #ifndef __CINDICATOR_H__
 #define __CINDICATOR_H__
 #pragma once
+
 #define FUNCTIONID_CHUNK 40
 #define FUNCTIONID_FUNCVAR 10
 #define FUNCTIONID_FUNCTION 9
@@ -21,31 +22,32 @@
 #include "Enums.h"
 #include "CTable.h"
 #include "CDiv.h"
+#include "CList.h"
 #include "BaseShape.h"
 
 namespace OwLib
 {
-	class CIndicator;
-	class CMathElement;
+	class  CIndicator;
+	class  CMathElement;
 
-	class CVariable
+	class  CVariable
 	{
 	public:
 		CVariable();
 		virtual ~CVariable();
 		BarShape *m_barShape;
 		CandleShape *m_candleShape;
-		String m_expression;
+		wstring m_expression;
 		int m_field;
 		int m_fieldIndex;
-		String m_fieldText;
+		wstring m_fieldText;
 		int m_functionID;
-		String m_funcName;
+		wstring m_funcName;
 		CIndicator *m_indicator;
 		int m_line;
 		PointShape *m_pointShape;
 		PolylineShape *m_polylineShape;
-		String m_name;
+		wstring m_name;
 		CVariable **m_parameters;
 		int m_parametersLength;
 		CMathElement **m_splitExpression;
@@ -60,35 +62,54 @@ namespace OwLib
 		void CreateTempFields(int count);
 	};
 
-	class CMathElement
+	class  CMathElement
 	{
 	public:
 		CMathElement();
+		CMathElement(int type, double value);
 		virtual ~CMathElement();
 		int m_type;
 		double m_value;
 		CVariable *m_var;
 	};
 
-	class CFunction
+	class   CMathElementEx : public CMathElement
+	{
+	public:
+		CMathElementEx *m_next;
+		CMathElementEx(int type, double value):CMathElement(type, value)
+		{
+			m_next = 0;
+		}
+		virtual ~CMathElementEx()
+		{
+			if(m_next)
+			{
+				delete m_next;
+				m_next = 0;
+			}
+		}
+	};
+
+	class  CFunction
 	{
 	public:
 		CFunction();
 		virtual ~CFunction();
 		int m_ID;
-		String m_name;
+		wstring m_name;
 		int m_type;
 	public:
 		virtual double OnCalculate(CVariable *var);
 	};
 
-	class CVar
+	class  CVar
     {
 	public:
-        vector<String> *m_list;
-        map<String, String> *m_map;
+        vector<wstring> *m_list;
+        map<wstring, wstring> *m_map;
         double m_num;
-        String m_str;
+        wstring m_str;
         int m_type;
         CVar *m_parent;
 	public:
@@ -113,13 +134,13 @@ namespace OwLib
             m_parent = 0;
         }
 	public:
-        virtual String GetText(CIndicator *indicator, CVariable *name);
+        virtual wstring GetText(CIndicator *indicator, CVariable *name);
 		virtual double GetValue(CIndicator *indicator, CVariable *name);
 		virtual double OnCreate(CIndicator *indicator, CVariable *name, CVariable *value);
 		virtual void SetValue(CIndicator *indicator, CVariable *name, CVariable *value);
     };
 
-	class CVarFactory
+	class  CVarFactory
 	{
 	public:
 		virtual CVar* CreateVar()
@@ -128,53 +149,49 @@ namespace OwLib
 		}
 	};
 
-	class CIndicator
+	class  CIndicator
 	{
 	protected:
 		CRITICAL_SECTION _csLock;
-		map<String,double> m_defineParams;
-		map<String,CFunction*> m_functions;
+		map<wstring,double> m_defineParams;
+		map<wstring,CFunction*> m_functions;
 		map<int, CFunction*> m_functionsMap;
 		int m_index;
 		vector<CVariable*> m_lines;
 		vector<_int64> m_systemColors;
 		void *m_tag;
-		map<String, CVariable*> m_tempFunctions;
-        map<String, CVariable*> m_tempVariables;
+		map<wstring, CVariable*> m_tempFunctions;
+        map<wstring, CVariable*> m_tempVariables;
 		vector<CVariable*> m_variables;
 		CVarFactory *m_varFactory;
-		String VARIABLE;
-		String VARIABLE2;
-		String VARIABLE3;
-		String FUNCTIONS;
-		String FUNCTIONS_FIELD;
 	protected:
 		AttachVScale m_attachVScale;
 		int m_break;
 		CTable *m_dataSource;
 		CDiv *m_div;
-		String m_name;
+		wstring m_name;
 		double m_result;
+		CVar m_resultVar;
 	protected:
-		void CIndicator::AnalysisVariables(String *sentence, int line, String funcName, String fieldText, bool isFunction);
-		void AnalysisScriptLine(String line);
+		void AnalysisVariables(wstring *sentence, int line, wstring funcName, wstring fieldText, bool isFunction);
+		void AnalysisScriptLine(wstring line);
 		double Calculate(CMathElement **expr, int exprLength);
 		double CallFunction(CVariable *var);
 		void DeleteTempVars();
 		void DeleteTempVars(CVariable *var);
-		_int64 GetColor(const String& strColor);
+		_int64 GetColor(const wstring& strColor);
 		LPDATA GetDatas(int fieldIndex, int mafieldIndex, int index, int n);
-		int GetLineWidth(const String& strLine);
-		int GetMiddleScript(const String& script, vector<String> *lines);
-		int GetOperator(const String& op);
-		bool IsNumeric(const String& str);
-		String Replace(const String& parameter);
-		CMathElement** SplitExpression(const String& expression, int *sLength);
-		String* SplitExpression2(const String& expression, int *sLength);
+		float GetLineWidth(const wstring& strLine);
+		int GetMiddleScript(const wstring& script, vector<wstring> *lines);
+		int GetOperator(const wstring& op);
+		bool IsNumeric(const wstring& str);
+		wstring Replace(const wstring& parameter);
+		CMathElement** SplitExpression(const wstring& expression, int *sLength);
+		wstring* SplitExpression2(const wstring& expression, int *sLength);
 	public:
 		CIndicator();
 		virtual ~CIndicator();
-		map<String ,int> m_mainVariables;
+		map<wstring ,int> m_mainVariables;
 		map<int, CVar*> m_tempVars;
 		virtual AttachVScale GetAttachVScale();
 		virtual void SetAttachVScale(AttachVScale attachVScale);
@@ -183,9 +200,10 @@ namespace OwLib
 		virtual CDiv* GetDiv();
 		virtual void SetDiv(CDiv *div);
 		virtual int GetIndex();
-		virtual String GetName();
-		virtual void SetName(const String& name);
-		virtual void SetScript(const String& script);
+		virtual wstring GetName();
+		virtual void SetName(const wstring& name);
+		virtual double GetResult();
+		virtual void SetScript(const wstring& script);
 		virtual vector<_int64> GetSystemColors();
 		virtual void SetSystemColors(vector<_int64> systemColors);
 		virtual void* GetTag();
@@ -194,18 +212,18 @@ namespace OwLib
 		virtual void SetVarFactory(CVarFactory *varFactory);
 	public:
 		void AddFunction(CFunction *function);
-		double CallFunction(String funcName);
+		double CallFunction(wstring funcName);
 		void Clear();
 		vector<CFunction*> GetFunctions();
 		vector<BaseShape*> GetShapes();
-		String GetText(CVariable *var);
+		wstring GetText(CVariable *var);
 		double GetValue(CVariable *var);
-		CVariable* GetVariable(const String& name);
+		CVariable* GetVariable(const wstring& name);
 		void Lock();
 		void OnCalculate(int index);
 		void RemoveFunction(CFunction *function);
-		void SetSourceField(const String& key, int value);
-		void SetSourceValue(const String& key, double value);
+		void SetSourceField(const wstring& key, int value);
+		void SetSourceValue(int index, const wstring& key, double value);
 		void SetVariable(CVariable *variable, CVariable *parameter);
 		void UnLock();
 	protected:

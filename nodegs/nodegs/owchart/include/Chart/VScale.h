@@ -11,6 +11,7 @@
 #ifndef __VSCALE_H__
 #define __VSCALE_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Base\\CPaint.h"
 #include "Enums.h"
@@ -20,10 +21,10 @@
 
 namespace OwLib
 {
-	class CDiv;
-	class CrossLineTip;
+	class  CDiv;
+	class  CrossLineTip;
 
-	class VScale : public CProperty
+	class  VScale : public CProperty
 	{
 	protected:
 		bool m_allowUserPaint;
@@ -87,11 +88,11 @@ namespace OwLib
 		virtual double GetVisibleMin();
 		virtual void SetVisibleMin(double visibleMin);
 	public:
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		vector<double> GetScaleSteps();
 		virtual void OnPaint(CPaint *paint, CDiv *div, const RECT& rect);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 		void SetScaleSteps(vector<double> scaleSteps);
 	};
 }

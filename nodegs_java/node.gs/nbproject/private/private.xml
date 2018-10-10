@@ -3,21 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Miao/X/nodegs/nodegs/nodegs_java/node.gs/src/nodegs/base/HttpFileData.java</file>
-            <file>file:/C:/Miao/X/nodegs/nodegs/nodegs_java/node.gs/src/nodegs/script/CFunctionEx.java</file>
-            <file>file:/C:/Miao/X/nodegs/nodegs/nodegs_java/node.gs/src/nodegs/service/GroupTradeRatioTable.java</file>
-            <file>file:/C:/Miao/X/nodegs/nodegs/nodegs_java/node.gs/src/nodegs/base/BaseService.java</file>
-            <file>file:/C:/Miao/X/nodegs/nodegs/nodegs_java/node.gs/src/nodegs/base/CStrA.java</file>
-            <file>file:/C:/Miao/X/nodegs/nodegs/nodegs_java/node.gs/src/nodegs/script/CFunctionHttp.java</file>
-            <file>file:/C:/Miao/X/nodegs/nodegs/nodegs_java/node.gs/src/nodegs/service/DataCenter.java</file>
-            <file>file:/C:/Miao/X/nodegs/nodegs/nodegs_java/node.gs/src/nodegs/script/CFunctionBase.java</file>
-            <file>file:/C:/Miao/X/nodegs/nodegs/nodegs_java/node.gs/src/nodegs/base/HttpEasyServiceEx.java</file>
-            <file>file:/C:/Miao/X/nodegs/nodegs/nodegs_java/node.gs/src/nodegs/base/ServerSocketListener.java</file>
-            <file>file:/C:/Miao/X/nodegs/nodegs/nodegs_java/node.gs/src/nodegs/base/HttpHardService.java</file>
-            <file>file:/C:/Miao/X/nodegs/nodegs/nodegs_java/node.gs/src/nodegs/base/NodeService.java</file>
-            <file>file:/C:/Miao/X/nodegs/nodegs/nodegs_java/node.gs/src/nodegs/base/Binary.java</file>
-            <file>file:/C:/Miao/X/nodegs/nodegs/nodegs_java/node.gs/src/nodegs/base/SocketArray.java</file>
-            <file>file:/C:/Miao/X/nodegs/nodegs/nodegs_java/node.gs/src/nodegs/base/FileTransferService.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/base/FileTransferService.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/service/NewsService.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/service/UserSessionService.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/service/Security.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/base/NodeService.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/base/HttpHardService.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/script/CFunctionHttp.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/service/UserSecurityService.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/script/CFunctionBase.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/base/BaseService.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/service/SecurityService.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/service/LoginService.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/base/CFileA.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/base/EventService.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/NodeGs.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/base/CStrA.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/script/CFunctionEx.java</file>
+            <file>file:/C:/Users/Public/Rubbish/nodegs2/nodegs_java/node.gs/src/nodegs/base/ServerSocketListener.java</file>
         </group>
     </open-files>
 </project-private>

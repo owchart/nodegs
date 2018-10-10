@@ -5,6 +5,7 @@
 
 #pragma once
 
+
 // 如果必须将位于下面指定平台之前的平台作为目标，请修改下列定义。
 // 有关不同平台对应值的最新信息，请参考 MSDN。
 #ifndef WINVER				// 允许使用特定于 Windows XP 或更高版本的功能。
@@ -43,14 +44,14 @@
 #include <float.h>
 #include <io.h>
 #include <string>
+
 using namespace std;
-typedef std::wstring String;
 
 #include <Imm.h>  
 //源文件中添加lib文件  
 #pragma comment(lib,"imm32.lib") 
 
-
 // TODO: 在此处引用程序需要的其他头文件
+#include "include\\Base\\CPaint.h"
 #include "include\\Base\\Control.h"
 using namespace OwLib;

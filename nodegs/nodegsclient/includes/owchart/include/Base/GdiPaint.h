@@ -11,6 +11,7 @@
 #ifndef __GDIPAINT_H__
 #define __GDIPAINT_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include <comdef.h>
 #include "gdiplus.h"
@@ -20,18 +21,19 @@ using namespace Gdiplus;
 
 namespace OwLib
 {
-	class GdiPaint:public CPaint
+	class  GdiPaint:public CPaint
 	{
 	protected:
 		Graphics *m_g;
 		HDC m_hDC;
 		HRGN m_hRgn;
-		map<String, Bitmap*> m_images;
+		typedef map<wstring, Bitmap*> typeImages;
+		typeImages m_images;
 		int m_offsetX;
 		int m_offsetY;
 		RECT m_pRect;
 		HBITMAP m_memBM;
-		String m_resourcePath;
+		wstring m_resourcePath;
 		int m_rotateAngle;
 		double m_scaleFactorX;
 		double m_scaleFactorY;
@@ -50,7 +52,7 @@ virtual void AddArc(const RECT& rect, float startAngle, float sweepAngle);
 		virtual void AddRect(const RECT& rect);
 		virtual void AddPie(const RECT& rect, float startAngle, float sweepAngle);
 		virtual void AddText(LPCWSTR strText, FONT *font, const RECT& rect);
-		virtual void BeginExport(const String& exportPath, const RECT& rect);
+		virtual void BeginExport(const wstring& exportPath, const RECT& rect);
 		virtual void BeginPaint(HDC hDC, const RECT& wRect, const RECT& pRect);
 		virtual void BeginPath();
 		virtual void ClearCaches();
@@ -97,7 +99,7 @@ virtual void AddArc(const RECT& rect, float startAngle, float sweepAngle);
 		virtual void SetLineCap(int startLineCap, int endLineCap);
 		virtual void SetOffset(const POINT& offset);
 		virtual void SetOpacity(float opacity);
-        virtual void SetResourcePath(const String& resourcePath);
+        virtual void SetResourcePath(const wstring& resourcePath);
 		virtual void SetRotateAngle(int rotateAngle);
 		virtual void SetScaleFactor(double scaleFactorX, double scaleFactorY);
 		virtual void SetSmoothMode(int smoothMode);

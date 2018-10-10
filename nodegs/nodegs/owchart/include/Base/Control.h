@@ -12,6 +12,7 @@
 #ifndef __BASECONTROL_H__
 #define __BASECONTROL_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "NativeBase.h"
 #include "CPaint.h"
@@ -21,19 +22,18 @@
 
 namespace OwLib
 {
-	static int timerID = 0;
-	class NativeBase;
-	class ControlA;
+	class  NativeBase;
+	class  ControlA;
 
-	typedef void (*ControlEvent)(void*, void*);
-	typedef void (*ControlInvokeEvent)(void*, void*, void*);
-	typedef void (*ControlKeyEvent)(void*, char, void*);
-	typedef void (*ControlMouseEvent)(void*, const POINT&, MouseButtonsA, int, int, void*);
-	typedef void (*ControlPaintEvent)(void*, CPaint*, const RECT&, void*);
-	typedef void (*ControlTimerEvent)(void*, int, void*);
-	typedef void (*ControlTouchEvent)(void*, vector<CTouch>*, void*);
+	typedef  void (*ControlEvent)(void*, void*);
+	typedef  void (*ControlInvokeEvent)(void*, void*, void*);
+	typedef  void (*ControlKeyEvent)(void*, char, void*);
+	typedef  void (*ControlMouseEvent)(void*, const POINT&, MouseButtonsA, int, int, void*);
+	typedef  void (*ControlPaintEvent)(void*, CPaint*, const RECT&, void*);
+	typedef  void (*ControlTimerEvent)(void*, int, void*);
+	typedef  void (*ControlTouchEvent)(void*, vector<CTouch>*, void*);
 
-	class EVENTID
+	class  EVENTID
 	{
 	public:
         static const int ADD = 0;
@@ -107,7 +107,7 @@ namespace OwLib
         static const int USER = 100000;
 	};
 
-	class ControlA : public CProperty
+	class  ControlA : public CProperty
 	{
 	protected:
 		HorizontalAlignA m_align;
@@ -115,9 +115,10 @@ namespace OwLib
 		bool m_allowPreviewsEvent;
 		ANCHOR m_anchor;
 		bool m_autoEllipsis;
+		bool m_autoShowToolTip;
 		bool m_autoSize;
 		_int64 m_backColor;
-		String m_backImage;
+		wstring m_backImage;
 		_int64 m_borderColor;
 		bool m_canFocus;
 		bool m_canRaiseEvents;
@@ -135,7 +136,7 @@ namespace OwLib
 		PADDING m_margin;
 		SIZE m_maximumSize;
 		SIZE m_minimumSize;
-		String m_name;
+		wstring m_name;
 		NativeBase *m_native;
 		POINT m_oldLocation;
 		SIZE m_oldSize;
@@ -145,12 +146,12 @@ namespace OwLib
 		POINTF *m_percentLocation;
 		SIZEF *m_percentSize;
 		RECT m_region;
-		String m_resourcePath;
+		wstring m_resourcePath;
 		SIZE m_size;
 		int m_tabIndex;
 		bool m_tabStop;
 		void *m_tag;
-		String m_text;
+		wstring m_text;
 		bool m_topMost;
 		bool m_useRegion;
 		VerticalAlignA m_verticalAlign;
@@ -166,7 +167,7 @@ namespace OwLib
 		void CallTimerEvents(int eventID, int timerID);
 		void CallTouchEvents(int eventID, vector<CTouch> *touches);
         virtual _int64 GetPaintingBackColor();
-        virtual String GetPaintingBackImage();
+        virtual wstring GetPaintingBackImage();
         virtual _int64 GetPaintingBorderColor();
         virtual _int64 GetPaintingForeColor();
 	public:
@@ -183,12 +184,14 @@ namespace OwLib
 		virtual void SetAnchor(const ANCHOR& anchor);
 		virtual bool AutoEllipsis();
 		virtual void SetAutoEllipsis(bool autoEllipsis);
+		virtual bool AutoShowToolTip();
+		virtual void SetAutoShowToolTip(bool autoShowToolTip);
 		virtual bool AutoSize();
 		virtual void SetAutoSize(bool autoSize);
 		virtual _int64 GetBackColor();
 		virtual void SetBackColor(_int64 backColor);
-		virtual String GetBackImage();
-		virtual void SetBackImage(const String& backImage);
+		virtual wstring GetBackImage();
+		virtual void SetBackImage(const wstring& backImage);
 		virtual _int64 GetBorderColor();
 		virtual void SetBorderColor(_int64 borderColor);
 		virtual int GetBottom();
@@ -232,8 +235,8 @@ namespace OwLib
 		virtual SIZE GetMinimumSize();
 		virtual void SetMinimumSize(SIZE minimumSize);
 		virtual POINT GetMousePoint();
-		virtual String GetName();
-		virtual void SetName(const String& name);
+		virtual wstring GetName();
+		virtual void SetName(const wstring& name);
 		virtual NativeBase* GetNative();
 		void SetNative(NativeBase *native);
 		virtual float GetOpacity();
@@ -244,8 +247,8 @@ namespace OwLib
 		virtual void SetParent(ControlA *control);
 		virtual RECT GetRegion();
 		virtual void SetRegion(const RECT& region);
-		virtual String GetResourcePath();
-		virtual void SetResourcePath(const String& resourcePath);
+		virtual wstring GetResourcePath();
+		virtual void SetResourcePath(const wstring& resourcePath);
 		virtual int GetRight();
 		virtual SIZE GetSize();
 		virtual void SetSize(const SIZE& size);
@@ -255,8 +258,8 @@ namespace OwLib
 		virtual void SetTabStop(bool tabStop);
 		virtual void* GetTag();
 		virtual void SetTag(void *tag);
-		virtual String GetText();
-		virtual void SetText(const String& text);
+		virtual wstring GetText();
+		virtual void SetText(const wstring& text);
 		virtual int GetTop();
 		virtual void SetTop(int top);
 		virtual bool IsTopMost();
@@ -278,13 +281,13 @@ namespace OwLib
 		virtual bool ContainsPoint(const POINT& mp);
 		virtual void Focus();
 		virtual vector<ControlA*> GetControls();
-		virtual String GetControlType();
+		virtual wstring GetControlType();
 		virtual POINT GetDisplayOffset();
-		virtual vector<String> GetEventNames();
+		virtual vector<wstring> GetEventNames();
 		static int GetNewTimerID();
 		virtual ControlA* GetPopupMenuContext(ControlA *control);
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual bool HasChildren();
 		virtual void Hide();
 		virtual void InsertControl(int index, ControlA *control);
@@ -350,7 +353,7 @@ namespace OwLib
 		virtual POINT PointToNative(const POINT& mp);
 		virtual void RegisterEvent(void *func, int eventID, void *pInvoke);
 		virtual void RemoveControl(ControlA *control);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 		virtual void Show();
 		virtual void StartTimer(int timerID, int interval);
 		virtual void StopTimer(int timerID);

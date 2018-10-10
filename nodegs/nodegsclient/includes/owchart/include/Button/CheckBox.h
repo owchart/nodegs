@@ -12,13 +12,14 @@
 #ifndef __CHECKBOX_H__
 #define __CHECKBOX_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Base\\CStr.h"
 #include "Button.h"
 
 namespace OwLib
 {
-	class CheckBoxA : public ButtonA
+	class  CheckBoxA : public ButtonA
 	{
 	protected:
 		HorizontalAlignA m_buttonAlign;
@@ -26,15 +27,15 @@ namespace OwLib
 		_int64 m_buttonBorderColor;
 		SIZE m_buttonSize;
 		bool m_checked;
-		String m_checkedBackImage;
-		String m_checkHoveredBackImage;
-		String m_checkPushedBackImage;
-		String m_disableCheckedBackImage;
+		wstring m_checkedBackImage;
+		wstring m_checkHoveredBackImage;
+		wstring m_checkPushedBackImage;
+		wstring m_disableCheckedBackImage;
 	protected:
 		virtual _int64 GetPaintingBackColor();
 		virtual _int64 GetPaintingButtonBackColor();
 		virtual _int64 GetPaintingButtonBorderColor();
-		virtual String GetPaintingBackImage();
+		virtual wstring GetPaintingBackImage();
 	public:
 		CheckBoxA();
 		virtual ~CheckBoxA();
@@ -48,24 +49,25 @@ namespace OwLib
 		virtual void SetButtonSize(SIZE buttonSize);
 		virtual bool IsChecked();
 		virtual void SetChecked(bool checked);
-		virtual String GetCheckedBackImage();
-		virtual void SetCheckedBackImage(const String& checkedBackImage);
-		virtual String GetCheckHoveredBackImage();
-		virtual void SetCheckHoveredBackImage(const String& checkHoveredBackImage);
-		virtual String GetCheckPushedBackImage();
-		virtual void SetCheckPushedBackImage(const String& checkPushedBackImage);
-		virtual String GetDisableCheckedBackImage();
-		virtual void SetDisableCheckedBackImage(const String& disableCheckedBackImage);
+		virtual wstring GetCheckedBackImage();
+		virtual void SetCheckedBackImage(const wstring& checkedBackImage);
+		virtual wstring GetCheckHoveredBackImage();
+		virtual void SetCheckHoveredBackImage(const wstring& checkHoveredBackImage);
+		virtual wstring GetCheckPushedBackImage();
+		virtual void SetCheckPushedBackImage(const wstring& checkPushedBackImage);
+		virtual wstring GetDisableCheckedBackImage();
+		virtual void SetDisableCheckedBackImage(const wstring& disableCheckedBackImage);
 	public:
-		virtual String GetControlType();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual wstring GetControlType();
+		virtual vector<wstring> GetEventNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual void OnCheckedChanged();
 		virtual void OnClick(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnPaintBackground(CPaint *paint, const RECT& clipRect);
 		virtual void OnPaintCheckButton(CPaint *paint, const RECT& clipRect);
 		virtual void OnPaintForeground(CPaint *paint, const RECT& clipRect);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 

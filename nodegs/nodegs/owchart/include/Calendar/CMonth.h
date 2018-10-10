@@ -11,12 +11,13 @@
 #ifndef __CMONTH_H__
 #define __CMONTH_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "CDay.h"
 
 namespace OwLib
 {
-	class CMonth
+	class  CMonth
 	{
 	protected:
 		int m_month;

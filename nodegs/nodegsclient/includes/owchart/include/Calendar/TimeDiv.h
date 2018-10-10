@@ -10,15 +10,16 @@
 #ifndef __TIMEDIV_H__
 #define __TIMEDIV_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "Calendar.h"
 #include "..\\TextBox\\Spin.h"
 
 namespace OwLib
 {
-	class CalendarA;
+	class  CalendarA;
 
-	class TimeDiv 
+	class  TimeDiv 
 	{
 	protected:
 		static void SelectedTimeChanged(void *sender, void *pInvoke);

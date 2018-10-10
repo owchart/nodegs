@@ -2,8 +2,8 @@ package nodegs;
 
 import nodegs.script.*;
 import nodegs.service.DataCenter;
-import gaia.owchart.owchart_android.Chart.*;
-import gaia.owchart.owchart_android.Base.*;
+import owchart.owlib.Chart.*;
+import owchart.owlib.Base.*;
 
 public class NodeGs {
 

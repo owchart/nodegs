@@ -12,6 +12,7 @@
 #ifndef __GRIDROW_H__
 #define __GRIDROW_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Base\\CProperty.h"
 #include "GridCell.h"
@@ -19,10 +20,10 @@
 
 namespace OwLib
 {
-	class GridCell;
-	class GridA;
+	class  GridCell;
+	class  GridA;
 
-	class GridRowStyle
+	class  GridRowStyle
 	{
 	protected:
 		_int64 m_backColor;
@@ -52,7 +53,7 @@ namespace OwLib
 	public:
 		void Copy(GridRowStyle *style);
 	};
-	class GridRow : public CProperty
+	class  GridRow : public CProperty
 	{
 	protected:
 		bool m_allowEdit;
@@ -92,19 +93,19 @@ namespace OwLib
 		virtual void SetVisibleIndex(int visibleIndex);
 	public:
 		void AddCell(int columnIndex, GridCell *cell);
-		void AddCell(const String& columnName, GridCell *cell);
+		void AddCell(const wstring& columnName, GridCell *cell);
 		void ClearCells();
 		vector<GridCell*> GetCells();
 		GridCell* GetCell(int columnIndex);
-		GridCell* GetCell(String columnName);
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		GridCell* GetCell(wstring columnName);
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual void OnAdd();
 		virtual void OnPaint(CPaint *paint, const RECT& clipRect, bool isAlternate);
 		virtual void OnPaintBorder(CPaint *paint, const RECT& clipRect, bool isAlternate);
 		virtual void OnRemove();
 		void RemoveCell(int columnIndex);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 

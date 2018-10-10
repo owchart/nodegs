@@ -11,17 +11,18 @@
 #ifndef __WINDOW_H__
 #define __WINDOW_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Button\\Button.h"
 #include "WindowFrame.h"
 
 namespace OwLib
 {
-	class WindowFrameA;
+	class  WindowFrameA;
 
-	typedef void (*WindowClosingEvent)(void*, bool*, void*);
+	typedef  void (*WindowClosingEvent)(void*, bool*, void*);
 
-	class WindowA : public ControlA
+	class  WindowA : public ControlA
 	{
 	protected:
 		int m_borderWidth;
@@ -58,10 +59,11 @@ namespace OwLib
 	public:
 		virtual void BringToFront();
 		virtual void Close();
-		virtual String GetControlType();
+		virtual wstring GetControlType();
 		RECT GetDynamicPaintRect();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual vector<wstring> GetEventNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual bool OnDragBegin();
 		virtual void OnDragReady(POINT *startOffset);
 		virtual void OnMouseDown(POINT mp, MouseButtonsA button, int clicks, int delta);
@@ -72,7 +74,7 @@ namespace OwLib
 		virtual void OnWindowClosing(bool *cancel);
 		virtual void OnWindowClosed();
 		virtual void SendToBack();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 		virtual void ShowDialog();
 	};
 }

@@ -11,6 +11,7 @@
 #ifndef __WINHOST_H__
 #define __WINHOST_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "Control.h"
 #include "CStr.h"
@@ -22,10 +23,10 @@
 
 namespace OwLib
 {
-	class ControlA;
-	class NativeBase;
+	class  ControlA;
+	class  NativeBase;
 
-	class WinHost : public ControlHost
+	class  WinHost : public ControlHost
 	{
 	protected:
 		CRITICAL_SECTION _csLock;
@@ -58,7 +59,7 @@ namespace OwLib
 		virtual bool AllowPartialPaint();
 		virtual void BeginInvoke(ControlA *control, void *args);
 		virtual void Copy(string text);
-		virtual ControlA* CreateInternalControl(ControlA *parent, const String& clsid);
+		virtual ControlA* CreateInternalControl(ControlA *parent, const wstring& clsid);
 		static string GetAppPath();
 		virtual CursorsA GetCursor();
 		virtual int GetIntersectRect(LPRECT lpDestRect, const RECT *lpSrc1Rect, const RECT *lpSrc2Rect);
@@ -77,7 +78,7 @@ namespace OwLib
 		virtual void SetAllowOperate(bool allowOperate);
 		virtual void SetAllowPartialPaint(bool allowPartialPaint);
         virtual void SetCursor(CursorsA cursor);
-		virtual void ShowToolTip(const String& text, const POINT& mp);
+		virtual void ShowToolTip(void *sender, const wstring& text, const POINT& mp);
         virtual void StartTimer(int timerID, int interval);
         virtual void StopTimer(int timerID);
 		void UnLock();

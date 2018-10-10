@@ -11,6 +11,7 @@
 #ifndef __HEADDIV_H__
 #define __HEADDIV_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "CDay.h"
 #include "Calendar.h"
@@ -18,17 +19,17 @@
 
 namespace OwLib
 {
-	class ArrowButton;
-	class DateTitle;
+	class  ArrowButton;
+	class  DateTitle;
 
-	class HeadDiv:public ControlA
+	class  HeadDiv:public ControlA
 	{
 	protected:
 		CalendarA *m_calendar;
 		DateTitle *m_dateTitle;
 		ArrowButton *m_lastBtn;
 		ArrowButton *m_nextBtn;
-		String m_weekStrings[7];
+		wstring m_weekStrings[7];
 	public:
 		HeadDiv(CalendarA *calendar);
 		virtual ~HeadDiv();
@@ -41,7 +42,7 @@ namespace OwLib
 		virtual ArrowButton* GetNextBtn();
 		virtual void SetNextBtn(ArrowButton *nextBtn);
 	public:
-		virtual String GetControlType();
+		virtual wstring GetControlType();
 		virtual void OnLoad();
 		virtual void OnPaintBackground(CPaint *paint, const RECT& clipRect);
 		virtual void OnPaintBorder(CPaint *paint, const RECT& clipRect);

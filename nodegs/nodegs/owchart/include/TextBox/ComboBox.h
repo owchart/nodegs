@@ -12,6 +12,7 @@
 #ifndef __COMBOBOX_H__
 #define __COMBOBOX_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "TextBox.h"
 #include "..\\Button\\Button.h"
@@ -20,9 +21,9 @@
 
 namespace OwLib
 {
-	class ComboBoxA;
+	class  ComboBoxA;
 
-	class ComboBoxMenu : public MenuA
+	class  ComboBoxMenu : public MenuA
 	{
 	protected:
 		ComboBoxA *m_comboBox;
@@ -34,7 +35,7 @@ namespace OwLib
 		virtual bool OnAutoHide();
 	};
 
-	class ComboBoxA : public TextBoxA
+	class  ComboBoxA : public TextBoxA
 	{
 	protected:
 		ButtonA* m_dropDownButton;
@@ -52,18 +53,18 @@ namespace OwLib
 		virtual ComboBoxMenu* GetDropDownMenu();
 		virtual int GetSelectedIndex();
 		virtual void SetSelectedIndex(int selectedIndex);
-		virtual String GetSelectedText();
-		virtual void SetSelectedText(const String& selectedText);
-		virtual String GetSelectedValue();
-		virtual void SetSelectedValue(const String& selectedValue);
+		virtual wstring GetSelectedText();
+		virtual void SetSelectedText(const wstring& selectedText);
+		virtual wstring GetSelectedValue();
+		virtual void SetSelectedValue(const wstring& selectedValue);
 	public:
 		void AddItem(MenuItemA *item);
 		void ClearItems();
-		virtual String GetControlType();
-		virtual vector<String> GetEventNames();
+		virtual wstring GetControlType();
+		virtual vector<wstring> GetEventNames();
 		vector<MenuItemA*> GetItems();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		void InsertItem(int index, MenuItemA *item);
 		virtual void OnDropDownOpening();
 		virtual void OnKeyDown(char key);
@@ -71,7 +72,7 @@ namespace OwLib
 		virtual void OnSelectedIndexChanged();
 		virtual void OnMouseWheel(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		void RemoveItem(MenuItemA *item);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 		virtual void Update();
 	};
 }

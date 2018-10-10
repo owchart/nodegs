@@ -11,7 +11,7 @@
 
 package nodegs.script;
 import java.util.Scanner;
-import gaia.owchart.owchart_android.Chart.*;
+import owchart.owlib.Chart.*;
 
 /**
  *

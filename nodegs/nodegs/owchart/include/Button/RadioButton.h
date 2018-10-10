@@ -12,28 +12,29 @@
 #ifndef __RADIOBUTTON_H__
 #define __RADIOBUTTON_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Base\\CStr.h"
 #include "CheckBox.h"
 
 namespace OwLib
 {
-	class RadioButtonA:public CheckBoxA
+	class  RadioButtonA:public CheckBoxA
 	{
 	protected:
-		String m_groupName;
+		wstring m_groupName;
 	public:
 		RadioButtonA();
 		virtual ~RadioButtonA();
-		virtual String GetGroupName();
-		virtual void SetGroupName(const String& groupName);
+		virtual wstring GetGroupName();
+		virtual void SetGroupName(const wstring& groupName);
 	public:
-		virtual String GetControlType();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual wstring GetControlType();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual void OnClick(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnPaintCheckButton(CPaint *paint, const RECT& clipRect);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 		virtual void Update();
 	};
 }

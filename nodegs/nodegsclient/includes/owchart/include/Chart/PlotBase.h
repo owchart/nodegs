@@ -11,6 +11,7 @@
 #ifndef __PLOTBASE_H__
 #define __PLOTBASE_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Base\\CStr.h"
 #include "..\\Base\\NativeBase.h"
@@ -23,13 +24,13 @@
 
 namespace OwLib
 {
-	class CDiv;
-	class CTable;
-	class ChartA;
-	class NativeBase;
-	class CMathLib;
-	class CPlot;
-	class PlotMark
+	class  CDiv;
+	class  CTable;
+	class  ChartA;
+	class  NativeBase;
+	class  CMathLib;
+	class  CPlot;
+	class  PlotMark
 	{
 	public:
 		PlotMark(int index, double key, double value)
@@ -48,7 +49,7 @@ namespace OwLib
 		}
 	};
 
-	class PlotBase : public CPlot
+	class  PlotBase : public CPlot
 	{
 	protected:
 		ActionType m_action;
@@ -64,14 +65,14 @@ namespace OwLib
 		int m_lineWidth;
 		map<int,PlotMark*> m_marks;
 		int m_moveTimes;
-		String m_plotType;
-		map<String,int> m_sourceFields;
+		wstring m_plotType;
+		map<wstring,int> m_sourceFields;
 		map<int,PlotMark*> m_startMarks;
 		bool m_selected;
 		_int64 m_selectedColor;
 		SelectPoint m_selectedPoint;
 		POINT m_startPoint;
-		String m_text;
+		wstring m_text;
 		bool m_visible;
 		int m_zOrder;
 	protected:
@@ -159,16 +160,16 @@ namespace OwLib
 		virtual void SetLineStyle(int lineStyle);
 		virtual int GetLineWidth();
 		virtual void SetLineWidth(int lineWidth);
-		virtual String GetPlotType();
-		virtual void SetPlotType(const String& plotType);
+		virtual wstring GetPlotType();
+		virtual void SetPlotType(const wstring& plotType);
 		virtual bool IsSelected();
 		virtual void SetSelected(bool selected);
 		virtual _int64 GetSelectedColor();
 		virtual void SetSelectedColor(_int64 selectedColor);
 		virtual enum SelectPoint GetSelectedPoint();
 		virtual void SetSelectedPoint(enum SelectPoint selectedPoint);
-		virtual String GetText();
-		virtual void SetText(const String& text);
+		virtual wstring GetText();
+		virtual void SetText(const wstring& text);
 		virtual bool IsVisible();
 		virtual void SetVisible(bool visible);
 		virtual int GetWorkingAreaWidth();

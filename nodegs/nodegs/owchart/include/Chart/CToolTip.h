@@ -12,15 +12,16 @@
 #ifndef __CTOOLTIP_H__
 #define __CTOOLTIP_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Base\\CPaint.h"
 #include "CDiv.h"
 
 namespace OwLib
 {
-	class CDiv;
+	class  CDiv;
 
-	class CToolTip : public CProperty
+	class  CToolTip : public CProperty
 	{
 	protected:
 		bool m_allowUserPaint;
@@ -42,10 +43,10 @@ namespace OwLib
 		virtual _int64 GetForeColor();
 		virtual void SetForeColor(_int64 foreColor);
 	public:
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual void OnPaint(CPaint *paint, CDiv *div, const RECT& rect);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 #endif

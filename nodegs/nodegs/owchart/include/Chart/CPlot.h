@@ -11,6 +11,7 @@
 #ifndef __CPLOT_H__
 #define __CPLOT_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Base\\CPaint.h"
 #include "Enums.h"
@@ -18,8 +19,8 @@
 
 namespace OwLib
 {
-	class CDiv;
-	class CPlot
+	class  CDiv;
+	class  CPlot
 	{
 	public:
 		virtual AttachVScale GetAttachVScale();
@@ -38,16 +39,16 @@ namespace OwLib
 		virtual void SetLineStyle(int lineStyle);
 		virtual int GetLineWidth();
 		virtual void SetLineWidth(int lineWidth);
-		virtual String GetPlotType();
-		virtual void SetPlotType(const String& plotType);
+		virtual wstring GetPlotType();
+		virtual void SetPlotType(const wstring& plotType);
 		virtual bool IsSelected();
 		virtual void SetSelected(bool selected);
 		virtual _int64 GetSelectedColor();
 		virtual void SetSelectedColor(_int64 selectedColor);
 		virtual SelectPoint GetSelectedPoint();
 		virtual void SetSelectedPoint(SelectPoint selectedPoint);
-		virtual String GetText();
-		virtual void SetText(const String& text);
+		virtual wstring GetText();
+		virtual void SetText(const wstring& text);
 		virtual bool IsVisible();
 		virtual void SetVisible(bool visible);
 		virtual int GetZOrder();

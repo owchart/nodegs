@@ -12,6 +12,7 @@
 #ifndef __GRIDCELL_H__
 #define __GRIDCELL_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Base\\CProperty.h"
 #include "GridColumn.h"
@@ -20,11 +21,11 @@
 
 namespace OwLib
 {
-	class GridColumn;
-	class GridRow;
-	class GridA;
+	class  GridColumn;
+	class  GridRow;
+	class  GridA;
 
-	class GridCellStyle
+	class  GridCellStyle
 	{
 	protected:
 		HorizontalAlignA m_align;
@@ -49,14 +50,14 @@ namespace OwLib
 		void Copy(GridCellStyle *style);
 	};
 
-	class GridCell : public CProperty
+	class  GridCell : public CProperty
 	{
 	protected:
 		bool m_allowEdit;
 		int m_colSpan;
 		GridColumn *m_column;
 		GridA *m_grid;
-		String m_name;
+		wstring m_name;
 		GridRow *m_row;
 		int m_rowSpan;
 		GridCellStyle *m_style;
@@ -72,8 +73,8 @@ namespace OwLib
 		virtual void SetColumn(GridColumn *column);
 		virtual GridA* GetGrid();
 		virtual void SetGrid(GridA *grid);
-		virtual String GetName();
-		virtual void SetName(const String& name);
+		virtual wstring GetName();
+		virtual void SetName(const wstring& name);
 		virtual GridRow* GetRow();
 		virtual void SetRow(GridRow *row);
 		virtual int GetRowSpan();
@@ -82,8 +83,8 @@ namespace OwLib
 		virtual void SetStyle(GridCellStyle *style);
 		virtual void* GetTag();
 		virtual void SetTag(void *tag);
-		virtual String GetText();
-		virtual void SetText(const String& text);
+		virtual wstring GetText();
+		virtual void SetText(const wstring& text);
 	public:
 		virtual int CompareTo(GridCell *cell);
 		virtual bool GetBool();
@@ -91,10 +92,10 @@ namespace OwLib
 		virtual float GetFloat();
 		virtual int GetInt();
 		virtual _int64 GetLong();
-		virtual String GetPaintText();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
-		virtual String GetString();
+		virtual wstring GetPaintText();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
+		virtual wstring GetString();
 		virtual void OnAdd();
 		virtual void OnPaint(CPaint *paint, const RECT& rect, const RECT& clipRect, bool isAlternate);
 		virtual void OnRemove();
@@ -103,11 +104,11 @@ namespace OwLib
         virtual void SetFloat(float value);
         virtual void SetInt(int value);
         virtual void SetLong(_int64 value);
-		virtual void SetProperty(const String& name, const String& value);
-        virtual void SetString(const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
+        virtual void SetString(const wstring& value);
 	};
 
-	class GridControlCell : public GridCell
+	class  GridControlCell : public GridCell
 	{
 	protected:
 		ControlA *m_control;
@@ -125,8 +126,8 @@ namespace OwLib
 		virtual ~GridControlCell();
 		ControlA* GetControl();
 		void SetControl(ControlA *control);
-		virtual String GetString();
-		virtual String GetPaintText();
+		virtual wstring GetString();
+		virtual wstring GetPaintText();
 		virtual void OnAdd();
 		virtual void OnControlMouseDown(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnControlMouseMove(const POINT& mp, MouseButtonsA button, int clicks, int delta);
@@ -135,7 +136,7 @@ namespace OwLib
 		virtual void OnPaint(CPaint *paint, const RECT& rect, const RECT& clipRect, bool isAlternate);
 		virtual void OnPaintControl(CPaint *paint, const RECT& rect, const RECT& clipRect);
 		virtual void OnRemove();
-		virtual void SetString(const String& value);
+		virtual void SetString(const wstring& value);
 	};
 }
 

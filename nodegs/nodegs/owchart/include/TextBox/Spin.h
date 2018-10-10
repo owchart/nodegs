@@ -12,6 +12,7 @@
 #ifndef __SPIN_H__
 #define __SPIN_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Base\\CStr.h"
 #include "TextBox.h"
@@ -19,7 +20,7 @@
 
 namespace OwLib
 {
-	class SpinA : public TextBoxA
+	class  SpinA : public TextBoxA
 	{
 	private:
 		int m_timerID;
@@ -63,18 +64,18 @@ namespace OwLib
 		virtual void SetShowThousands(bool showThousands);
 		virtual double GetStep();
 		virtual void SetStep(double step);
-		virtual void SetText(const String& text);
+		virtual void SetText(const wstring& text);
 		virtual ButtonA* GetUpButton();
 		virtual double GetValue();
 		virtual void SetValue(double value);
 	public:
 		void Add();
-		String FormatNum(String inputText);
-		virtual String GetControlType();
-		virtual vector<String> GetEventNames();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
-		String GetValueByDigit(double value, int digit);
+		wstring FormatNum(wstring inputText);
+		virtual wstring GetControlType();
+		virtual vector<wstring> GetEventNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
+		wstring GetValueByDigit(double value, int digit);
 		virtual void OnChar(wchar_t ch);
 		virtual void OnKeyDown(char key);
 		virtual void OnLoad();
@@ -83,7 +84,7 @@ namespace OwLib
 		virtual void OnTimer(int timerID);
 		virtual void OnValueChanged();
 		void Reduce();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 		void SetRegion();
 		virtual void Update();
 	};

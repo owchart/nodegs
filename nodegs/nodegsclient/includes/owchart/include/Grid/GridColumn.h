@@ -12,6 +12,7 @@
 #ifndef __GRIDCOLUMN_H__
 #define __GRIDCOLUMN_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "GridEnums.h"
 #include "Grid.h"
@@ -19,15 +20,15 @@
 
 namespace OwLib
 {
-	class GridA;
+	class  GridA;
 
-	class GridColumn : public ButtonA
+	class  GridColumn : public ButtonA
 	{
 	protected:
 		bool m_allowSort;
 		bool m_allowResize;
 		HorizontalAlignA m_cellAlign;
-		String m_columnType;
+		wstring m_columnType;
 		bool m_frozen;
 		GridA *m_grid;
 		RECT m_headerRect;
@@ -39,7 +40,7 @@ namespace OwLib
 		int m_resizeState;
 	public:
 		GridColumn();
-		GridColumn(const String& text);
+		GridColumn(const wstring& text);
 		virtual ~GridColumn();
 		virtual bool AllowResize();
 		virtual void SetAllowResize(bool allowResize);
@@ -47,8 +48,8 @@ namespace OwLib
 		virtual void SetAllowSort(bool allowSort);
 		virtual HorizontalAlignA GetCellAlign();
 		virtual void SetCellAlign(HorizontalAlignA cellAlign);
-		virtual String GetColumnType();
-		virtual void SetColumnType(String columnType);
+		virtual wstring GetColumnType();
+		virtual void SetColumnType(wstring columnType);
 		virtual bool IsFrozen();
 		virtual void SetFrozen(bool frozen);
 		virtual GridA* GetGrid();
@@ -60,9 +61,9 @@ namespace OwLib
 		virtual GridColumnSortMode GetSortMode();
 		virtual void SetSortMode(GridColumnSortMode sortMode);
 	public:
-		virtual String GetControlType();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual wstring GetControlType();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual void OnClick(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual bool OnDragBegin();
 		virtual void OnDragging();
@@ -70,7 +71,7 @@ namespace OwLib
 		virtual void OnMouseMove(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnMouseUp(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnPaintForeground(CPaint *paint, const RECT& clipRect);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 

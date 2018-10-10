@@ -11,6 +11,7 @@
 #ifndef __CDIV_H__
 #define __CDIV_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Base\\CPaint.h"
 #include "Enums.h"
@@ -27,18 +28,18 @@
 
 namespace OwLib
 {
-	class ChartA;
-	class CrossLine;
-	class CToolTip;
-	class CPlot;
-	class BaseShape;
-	class HScale;
-	class VScale;
-	class NativeBase;
-	class TitleBar;
-	class SelectArea;
-	class ScaleGrid;
-	class CDiv : public CProperty
+	class  ChartA;
+	class  CrossLine;
+	class  CToolTip;
+	class  CPlot;
+	class  BaseShape;
+	class  HScale;
+	class  VScale;
+	class  NativeBase;
+	class  TitleBar;
+	class  SelectArea;
+	class  ScaleGrid;
+	class  CDiv : public CProperty
 	{
 	protected:
 		bool m_allowUserPaint;
@@ -127,14 +128,14 @@ namespace OwLib
 		void AddShape(BaseShape *shape);
 		bool ContainsShape(BaseShape *shape);
 		vector<CPlot*> GetPlots(SORTTYPE sortType);
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		vector<BaseShape*> GetShapes(SORTTYPE sortType);
 		VScale* GetVScale(AttachVScale attachVScale);
 		virtual void OnPaint(CPaint *paint, const RECT& rect);
 		void RemovePlot(CPlot *plot);
 		void RemoveShape(BaseShape *shape);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 #endif

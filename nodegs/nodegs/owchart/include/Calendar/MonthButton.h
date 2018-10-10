@@ -12,15 +12,16 @@
 #ifndef __MONTHBUTTON_H__
 #define __MONTHBUTTON_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Button\\Button.h"
 #include "Calendar.h"
 
 namespace OwLib
 {
-	class CalendarA;
+	class  CalendarA;
 
-	class MonthButton:public ButtonA
+	class  MonthButton:public ButtonA
 	{
 	protected:
 		RECT m_bounds;
@@ -46,7 +47,7 @@ namespace OwLib
 		virtual int GetYear();
 		virtual void SetYear(int year);
 	public:
-		virtual String GetMonthStr();
+		virtual wstring GetMonthStr();
 		virtual void OnClick(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnPaintBackGround(CPaint *paint, const RECT& clipRect);
 		virtual void OnPaintBorder(CPaint *paint, const RECT& clipRect);

@@ -12,7 +12,7 @@
 
 package nodegs.base;
 
-import gaia.owchart.owchart_android.Sock.*;
+import owchart.owlib.Sock.*;
 //****************************************************************************\
 //*                                                                             *
 //* BaseService.cs -  Base service functions, types, and definitions            *

@@ -11,22 +11,23 @@
 #ifndef __CPROPERTY_H__
 #define __CPROPERTY_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 
 namespace OwLib
 {
-	class CProperty
+	class  CProperty
 	{
 	public:
-		virtual void GetProperty(const String& name, String *value, String *type)
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type)
 		{
 		}
-		virtual vector<String> GetPropertyNames()
+		virtual vector<wstring> GetPropertyNames()
 		{
-			vector<String> propertyNames;
+			vector<wstring> propertyNames;
 			return propertyNames;
 		}
-		virtual void SetProperty(const String& name, const String& value)
+		virtual void SetProperty(const wstring& name, const wstring& value)
 		{
 		}
 	};

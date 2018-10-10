@@ -23,17 +23,17 @@
 
 namespace OwLib
 {
-	typedef enum SORTTYPE
+	typedef enum  SORTTYPE
 	{
 		SORTTYPE_NONE,
 		SORTTYPE_ASC,
 		SORTTYPE_DESC
 	};
 
-	class ControlA;
-	class ControlHost;
-	class WinHost;
-	class NativeBase
+	class  ControlA;
+	class  ControlHost;
+	class  WinHost;
+	class  NativeBase
 	{
 	protected:
 		bool m_allowScaleSize;
@@ -48,22 +48,22 @@ namespace OwLib
 		float m_opacity;
 		CPaint *m_paint;
 		POINT m_mouseDownPoint;
-		String m_resourcePath;
+		wstring m_resourcePath;
 		int m_rotateAngle;
 		SIZE m_scaleSize;
 		map<int, ControlA*> m_timers;
 		ControlA* FindControl(const POINT& mp, vector<ControlA*> *controls);
-		ControlA* FindControl(const String& name, vector<ControlA*> *controls);
+		ControlA* FindControl(const wstring& name, vector<ControlA*> *controls);
 		ControlA* FindPreviewsControl(ControlA *control);
 		ControlA* FindWindow(ControlA *control);
 		float GetPaintingOpacity(ControlA *control);
-		String GetPaintingResourcePath(ControlA *control);
+		wstring GetPaintingResourcePath(ControlA *control);
 		bool GetSortedControls(ControlA *parent, vector<ControlA*> *sortedControls);
 		void GetTabStopControls(ControlA *control, vector<ControlA*> *tabStopControls);
 		bool IsPaintEnabled(ControlA *control);
-		void RenderControls(const RECT& rect, vector<ControlA*> *controls, String resourcePath, float opacity);
+		void RenderControls(const RECT& rect, vector<ControlA*> *controls, wstring resourcePath, float opacity);
 		void SetCursor(ControlA *control);
-		void SetPaint(int offsetX, int offsetY, const RECT& clipRect, String resourcePath, float opacity);
+		void SetPaint(int offsetX, int offsetY, const RECT& clipRect, wstring resourcePath, float opacity);
 	public:
 		ControlA *m_draggingControl;
 		ControlA *m_focusedControl;
@@ -94,8 +94,8 @@ namespace OwLib
 		CPaint* GetPaint();
 		void SetPaint(CPaint *paint);
 		ControlA* GetPushedControl();
-		String GetResourcePath();
-		void SetResourcePath(const String& resourcePath);
+		wstring GetResourcePath();
+		void SetResourcePath(const wstring& resourcePath);
 		int GetRotateAngle();
 		void SetRotateAngle(int rotateAngle);
 		SIZE GetScaleSize();
@@ -109,11 +109,11 @@ namespace OwLib
 		int ClientX(ControlA *control);
 		int ClientY(ControlA *control);
 		bool ContainsControl(ControlA *control);
-        void ExportToImage(const String& exportPath);
-        void ExportToImage(const String& exportPath, ControlA *control);
+        void ExportToImage(const wstring& exportPath);
+        void ExportToImage(const wstring& exportPath, ControlA *control);
 		ControlA* FindControl(const POINT& mp);
 		ControlA* FindControl(const POINT& mp, ControlA *parent);
-		ControlA* FindControl(const String& name);
+		ControlA* FindControl(const wstring& name);
 		vector<ControlA*> GetControls();
 		void InsertControl(int index, ControlA *control);
 		void Invalidate();
@@ -130,7 +130,7 @@ namespace OwLib
 		void OnMouseWheel(MouseButtonsA button, int clicks, int delta);
 		void OnPaint(const RECT& rect);
 		bool OnPreviewsKeyEvent(int eventID, char key);
-		bool OnPreviewMouseEvent(int eventID, ControlA *control, const POINT& mp, MouseButtonsA button, int clicks, int delta);
+		bool OnPreviewsMouseEvent(int eventID, ControlA *control, const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		void OnResize();
 		void OnTimer(int timerID);
 		void RemoveControl(ControlA *control);

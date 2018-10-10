@@ -11,11 +11,14 @@
 #ifndef __CPAINT_H__
 #define __CPAINT_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 
 namespace OwLib
 {
-	struct ANCHOR
+	typedef  std::wstring String;
+
+	struct  ANCHOR
 	{
 	public:
 		bool bottom;
@@ -38,7 +41,7 @@ namespace OwLib
 		}
 	};
 
-	typedef enum ContentAlignmentA
+	typedef enum  ContentAlignmentA
 	{
         ContentAlignmentA_BottomCenter,
         ContentAlignmentA_BottomLeft,
@@ -51,7 +54,7 @@ namespace OwLib
         ContentAlignmentA_TopRight,
 	};
 
-	typedef enum CursorsA
+	typedef enum  CursorsA
 	{
 		CursorsA_AppStarting,
         CursorsA_Arrow,
@@ -69,7 +72,7 @@ namespace OwLib
 		CursorsA_WaitCursor
 	};
 
-	typedef enum DockStyleA
+	typedef enum  DockStyleA
 	{
 		DockStyleA_Bottom,
 		DockStyleA_Fill,
@@ -79,7 +82,7 @@ namespace OwLib
 		DockStyleA_Top
 	};
 
-	typedef enum HorizontalAlignA
+	typedef enum  HorizontalAlignA
 	{
 		HorizontalAlignA_Center,
 		HorizontalAlignA_Right,
@@ -87,7 +90,7 @@ namespace OwLib
 		HorizontalAlignA_Left
 	};
 
-	typedef enum VerticalAlignA
+	typedef enum  VerticalAlignA
 	{
 		VerticalAlignA_Bottom,
 		VerticalAlignA_Inherit,
@@ -95,7 +98,7 @@ namespace OwLib
 		VerticalAlignA_Top
 	};
 
-	typedef enum LayoutStyleA
+	typedef enum  LayoutStyleA
 	{
 		LayoutStyleA_BottomToTop,
 		LayoutStyleA_LeftToRight,
@@ -104,14 +107,14 @@ namespace OwLib
 		LayoutStyleA_TopToBottom
 	};
 
-	typedef enum MouseButtonsA
+	typedef enum  MouseButtonsA
 	{
 		MouseButtonsA_Left,
 		MouseButtonsA_None,
 		MouseButtonsA_Right
 	};
 
-	typedef enum MirrorMode
+	typedef enum  MirrorMode
 	{
 		MirrorMode_BugHole,
 		MirrorMode_None,
@@ -127,33 +130,21 @@ namespace OwLib
 	static _int64 COLOR_PUSHEDCONTROL = (_int64)-200000000007;
 	static _int64 COLOR_EMPTY = (_int64)-200000000000;
 
-	class CPaint;
-
-	class COLOR
-	{
-	public:
-		static _int64 ARGB(int r, int g, int b);
-		static _int64 ARGB(int a, int r, int g, int b);
-		static void ToARGB(CPaint *paint, _int64 dwPenColor, int *a, int *r, int *g, int *b);
-		static _int64 RatioColor(CPaint *paint, _int64 originalColor, double ratio);
-		static _int64 Reverse(CPaint *paint, _int64 originalColor);
-	};
-
-	struct POINTF
+	struct  POINTF
 	{
 	public:
 		float x;
 		float y;
 	};
 
-	struct SIZEF
+	struct  SIZEF
 	{
 	public:
 		float cx;
 		float cy;
 	};
 
-	struct RECTF
+	struct  RECTF
 	{
 	public:
 		float left;
@@ -162,10 +153,10 @@ namespace OwLib
 		float bottom;
 	};
 
-	class FONT
+	class  FONT
 	{
 	public:
-		String m_fontFamily;
+		wstring m_fontFamily;
 		float m_fontSize;
 		bool m_bold;
 		bool m_underline;
@@ -178,16 +169,18 @@ namespace OwLib
 			m_bold = false;
 			m_underline = false;
 			m_italic = false;
+			m_strikeout = false;
 		}
-		FONT(const String& fontFamily, float fontSize, bool bold, bool underline, bool italic)
+		FONT(const wstring& fontFamily, float fontSize, bool bold, bool underline, bool italic)
 		{
 			m_fontFamily = fontFamily;
 			m_fontSize = fontSize;
 			m_bold = bold;
 			m_underline = underline;
 			m_italic = italic;
+			m_strikeout = false;
 		}
-		FONT(const String& fontFamily, float fontSize, bool bold, bool underline, bool italic, bool strikeout)
+		FONT(const wstring& fontFamily, float fontSize, bool bold, bool underline, bool italic, bool strikeout)
 		{
 			m_fontFamily = fontFamily;
 			m_fontSize = fontSize;
@@ -208,7 +201,7 @@ namespace OwLib
 		}
 	};
 
-	struct PADDING
+	struct  PADDING
 	{
 	public:
 		int bottom;
@@ -238,7 +231,7 @@ namespace OwLib
 		}
 	};
 
-	class CTouch
+	class  CTouch
 	{
 	public:
 		POINT m_point;
@@ -257,7 +250,7 @@ namespace OwLib
 		}
 	};
 
-	class CPaint
+	class  CPaint
 	{
 	public:
 		CPaint();
@@ -271,7 +264,7 @@ namespace OwLib
 		virtual void AddRect(const RECT& rect);
 		virtual void AddPie(const RECT& rect, float startAngle, float sweepAngle);
 		virtual void AddText(LPCWSTR strText, FONT *font, const RECT& rect);
-		virtual void BeginExport(const String& exportPath, const RECT& rect);
+		virtual void BeginExport(const wstring& exportPath, const RECT& rect);
 		virtual void BeginPaint(HDC hDC, const RECT& wRect, const RECT& pRect);
 		virtual void BeginPath();
 		virtual void ClearCaches();
@@ -318,7 +311,7 @@ namespace OwLib
 		virtual void SetLineCap(int startLineCap, int endLineCap);
 		virtual void SetOffset(const POINT& offset);
 		virtual void SetOpacity(float opacity);
-        virtual void SetResourcePath(const String& resourcePath);
+        virtual void SetResourcePath(const wstring& resourcePath);
 		virtual void SetRotateAngle(int rotateAngle);
 		virtual void SetScaleFactor(double scaleFactorX, double scaleFactorY);
 		virtual void SetSmoothMode(int smoothMode);
@@ -326,6 +319,16 @@ namespace OwLib
 		virtual bool SupportTransparent();
 		virtual SIZE TextSize(LPCWSTR strText, FONT *font);
 		virtual SIZEF TextSizeF(LPCWSTR strText, FONT *font);
+	};
+
+	class  COLOR
+	{
+	public:
+		static _int64 ARGB(int r, int g, int b);
+		static _int64 ARGB(int a, int r, int g, int b);
+		static void ToARGB(CPaint *paint, _int64 dwPenColor, int *a, int *r, int *g, int *b);
+		static _int64 RatioColor(CPaint *paint, _int64 originalColor, double ratio);
+		static _int64 Reverse(CPaint *paint, _int64 originalColor);
 	};
 }
 

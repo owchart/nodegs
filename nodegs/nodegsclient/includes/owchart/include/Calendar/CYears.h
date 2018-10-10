@@ -11,12 +11,13 @@
 #ifndef __CYEARS_H__
 #define __CYEARS_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "CYear.h"
 
 namespace OwLib
 {
-	class CYears
+	class  CYears
 	{
 	public:
 		CYears();

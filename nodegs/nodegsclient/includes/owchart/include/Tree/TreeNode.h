@@ -12,6 +12,7 @@
 #ifndef __TREENODE_H__
 #define __TREENODE_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Grid\\Grid.h"
 #include "..\\Grid\\GridRow.h"
@@ -21,9 +22,9 @@
 
 namespace OwLib
 {
-	class TreeA;
+	class  TreeA;
 
-	class TreeNodeA : public GridControlCell
+	class  TreeNodeA : public GridControlCell
 	{
 	protected:
 		bool m_allowDragIn;
@@ -34,9 +35,9 @@ namespace OwLib
 		int m_indent;
 		TreeNodeA *m_parent;
 		GridColumn *m_targetColumn;
-		String m_text;
+		wstring m_text;
 		TreeA *m_tree;
-		String m_value;
+		wstring m_value;
 		void CheckChildNodes(vector<TreeNodeA*> nodes, bool isChecked);
 		void CollapseChildNodes(vector<TreeNodeA*> nodes, bool collapseAll);
 		void ExpendChildNodes(vector<TreeNodeA*> nodes, bool parentExpened, bool expendAll);
@@ -59,8 +60,8 @@ namespace OwLib
 		virtual void SetTargetColumn(GridColumn *targetColumn);
 		virtual TreeA* GetTree();
 		virtual void SetTree(TreeA *tree);
-		virtual String GetValue();
-		virtual void SetValue(const String& value);
+		virtual wstring GetValue();
+		virtual void SetValue(const wstring& value);
 	public:
 		void AppendNode(TreeNodeA *node);
 		void ClearNodes();
@@ -70,10 +71,10 @@ namespace OwLib
 		void ExpendAll();
 		vector<TreeNodeA*> GetChildNodes();
 		int GetNodeIndex(TreeNodeA *node);
-		virtual String GetPaintText();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
-		virtual String GetString();
+		virtual wstring GetPaintText();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
+		virtual wstring GetString();
 		void InsertNode(int index, TreeNodeA *node);
 		bool IsNodeVisible(TreeNodeA *node);
 		virtual void OnAddingNode(int index);
@@ -82,8 +83,8 @@ namespace OwLib
 		virtual void OnPaint(CPaint *paint, const RECT& rect, const RECT& clipRect, bool isAlternate);
 		virtual void OnRemovingNode();
 		void RemoveNode(TreeNodeA *node);
-		virtual void SetProperty(const String& name, const String& value);
-		virtual void SetString(const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
+		virtual void SetString(const wstring& value);
 	};
 }
 

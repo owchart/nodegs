@@ -11,19 +11,20 @@
 #ifndef __TABLELAYOUTDIV_H__
 #define __TABLELAYOUTDIV_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "Div.h"
 
 namespace OwLib
 {	
-	typedef enum SizeTypeA
+	typedef enum  SizeTypeA
 	{
 		SizeTypeA_AbsoluteSize,
 		SizeTypeA_AutoFill,
 		SizeTypeA_PercentSize
 	};
 
-	class ColumnStyleA : public CProperty
+	class  ColumnStyleA : public CProperty
 	{
 	protected:
 		SizeTypeA m_sizeType;
@@ -36,12 +37,12 @@ namespace OwLib
 		virtual float GetWidth();
 		virtual void SetWidth(float width);
 	public:
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 
-	class RowStyleA : public CProperty
+	class  RowStyleA : public CProperty
 	{
 	protected:
 		float m_height;
@@ -54,12 +55,12 @@ namespace OwLib
 		virtual SizeTypeA GetSizeType();
 		virtual void SetSizeTypeA(SizeTypeA  sizeType);
 	public:
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 
-	class TableLayoutDivA : public DivA
+	class  TableLayoutDivA : public DivA
 	{
 	protected:
 		vector<int> m_columns;
@@ -79,12 +80,12 @@ namespace OwLib
 	public:
 		virtual void AddControl(ControlA *control);
 		virtual void AddControl(ControlA *control, int column, int row);
-		virtual String GetControlType();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual wstring GetControlType();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual bool OnResetLayout();
 		virtual void RemoveControl(ControlA *control);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 		virtual void Update();
 	};
 }

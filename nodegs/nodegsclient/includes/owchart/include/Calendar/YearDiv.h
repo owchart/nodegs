@@ -11,6 +11,7 @@
 #ifndef __YEARDIV_H__
 #define __YEARDIV_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "YearButton.h"
 #include "HeadDiv.h"
@@ -18,12 +19,12 @@
 
 namespace OwLib
 {
-	class CalendarA;
-	class HeadDiv;
-	class YearButton;
-	class TimeDiv;
+	class  CalendarA;
+	class  HeadDiv;
+	class  YearButton;
+	class  TimeDiv;
 
-	class YearDiv 
+	class  YearDiv 
 	{
 	protected:
 		int m_am_Direction;
@@ -31,6 +32,7 @@ namespace OwLib
 		int m_am_TotalTick;
 		CalendarA *m_calendar;
 		int m_startYear;
+	public:
 		vector<YearButton*> m_yearButtons;
 		vector<YearButton*> m_yearButtons_am;
 	public:

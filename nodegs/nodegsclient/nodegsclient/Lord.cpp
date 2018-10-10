@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Service\HttpPostService.h"
 #include "Service\Binary.h"
+#include "Service\LoginService.h"
 using namespace std;
 using namespace OwLibCT;
 
@@ -20,20 +21,11 @@ static void Do()
 
 int _tmain(int argc, char* argv[])
 {
-	//XXXXXXXXX xxxxx;
-	//xxxxx.Read(L"C:\\Miao\\X\\owchart\\win\\owmath.dll");
-	//vector<String> paths;
-	//XXXXXXXXX::GetFiles(L"C:\\Miao\\X\\owchart\\win", &paths);
-
-	std::locale::global(std::locale(""));
-	Do();
-	cout << "1111";
-	HttpPostService postService;
-	for(int i = 0; i < 100000; i++)
-	{
-		String str = postService.Post(L"http://hqa.sinajs.cn/list=sh601857");
-		cout << str.c_str() << "\r\n";
-	}
+	LoginService *loginService = new LoginService;
+	BaseService::AddService(loginService);
+	int socketID = BaseService::ConnectToServer(0, 0, "127.0.0.1", 16666, "", 0, "", "", "", 0);
+	loginService->SetSocketID(socketID);
+	loginService->Login(L"21212", L"212112", 0);
 	while(true)
 	{
 		char *input = new char[1024];

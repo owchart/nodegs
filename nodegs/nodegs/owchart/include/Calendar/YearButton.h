@@ -12,15 +12,16 @@
 #ifndef __YEARBUTTON_H__
 #define __YEARBUTTON_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Button\\Button.h"
 #include "Calendar.h"
 
 namespace OwLib
 {
-	class CalendarA;
+	class  CalendarA;
 
-	class YearButton:public ButtonA
+	class  YearButton:public ButtonA
 	{
 	protected:
 		RECT m_bounds;

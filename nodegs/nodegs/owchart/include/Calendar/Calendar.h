@@ -11,6 +11,7 @@
 #ifndef __CALENDAR_H__
 #define __CALENDAR_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "CDay.h"
 #include "CYears.h"
@@ -28,25 +29,25 @@
 
 namespace OwLib
 {
-	class ArrowButton;
-	class DateTitle;
-	class DayButton;
-	class DayDiv;
-	class HeadDiv;
-	class MonthButton;
-	class MonthDiv;
-	class TimeDiv;
-	class YearButton;
-	class YearDiv;
+	class  ArrowButton;
+	class  DateTitle;
+	class  DayButton;
+	class  DayDiv;
+	class  HeadDiv;
+	class  MonthButton;
+	class  MonthDiv;
+	class  TimeDiv;
+	class  YearButton;
+	class  YearDiv;
 
-	typedef enum CalendarMode
+	typedef enum  CalendarMode
 	{
 		CalendarMode_Day,
 		CalendarMode_Month,
 		CalendarMode_Year
 	};
 
-	class CalendarA : public ControlA
+	class  CalendarA : public ControlA
 	{
 	private:
 		int m_timerID;;
@@ -87,12 +88,12 @@ namespace OwLib
 		virtual void SetYears(CYears *years);
 	public:
 		int DayOfWeek(int y, int m, int d);
-		virtual String GetControlType();
-		virtual vector<String> GetEventNames();
+		virtual wstring GetControlType();
+		virtual vector<wstring> GetEventNames();
 		CMonth* GetLastMonth(int year, int month);
 		CMonth* GetNextMonth(int year, int month);
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		void GoLastMonth();
 		void GoNextMonth();
 		virtual void OnClick(const POINT& mp, MouseButtonsA button, int clicks, int delta);
@@ -101,7 +102,7 @@ namespace OwLib
 		virtual void OnPaintBackground(CPaint *paint, const RECT& clipRect);
 		virtual void OnSelectedTimeChanged();
 		virtual void OnTimer(int timerID);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 		virtual void Update();
 	};
 }

@@ -12,6 +12,7 @@
 #ifndef __GRIDBAND_H__
 #define __GRIDBAND_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "GridEnums.h"
 #include "BandedGrid.h"
@@ -20,10 +21,10 @@
 
 namespace OwLib
 {
-	class BandedGridA;
-	class BandedGridColumn;
+	class  BandedGridA;
+	class  BandedGridColumn;
 
-	class GridBand : public ButtonA
+	class  GridBand : public ButtonA
 	{
 	protected:
 		bool m_allowResize;
@@ -55,9 +56,9 @@ namespace OwLib
 		vector<BandedGridColumn*> GetAllChildColumns();
 		vector<GridBand*> GetBands();
 		vector<BandedGridColumn*> GetColumns();
-		virtual String GetControlType();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual wstring GetControlType();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		void InsertBand(int index, GridBand *band);
 		void InsertColumn(int index, BandedGridColumn *column);
 		virtual void OnMouseDown(const POINT& mp, MouseButtonsA button, int clicks, int delta);
@@ -66,7 +67,7 @@ namespace OwLib
 		void RemoveBand(GridBand *band);
 		void RemoveColumn(BandedGridColumn *column);
 		virtual void ResetHeaderLayout();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 

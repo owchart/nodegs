@@ -11,11 +11,12 @@
 #ifndef __CDAY_H__
 #define __CDAY_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 
 namespace OwLib
 {
-	class CDay
+	class  CDay
 	{
 	protected:
 		int m_day;

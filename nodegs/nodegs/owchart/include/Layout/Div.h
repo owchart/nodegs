@@ -13,6 +13,7 @@
 #ifndef __DIV_H__
 #define __DIV_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Base\\Control.h"
 #include "..\\ScrollBar\\ScrollBar.h"
@@ -21,15 +22,16 @@
 
 namespace OwLib
 {
-	class HScrollBarA;
-	class VScrollBarA;
+	class  HScrollBarA;
+	class  VScrollBarA;
 
-	class DivA : public ControlA
+	class  DivA : public ControlA
 	{
 	protected:
 		bool m_allowDragScroll;
 		HScrollBarA *m_hScrollBar;
 		bool m_isDragScrolling;
+		bool m_isDragScrolling2;
 		bool m_readyToDragScroll;
 		ControlKeyEvent m_scrollButtonKeyDownEvent;
 		ControlMouseEvent m_scrollButtonMouseWheelEvent;
@@ -58,10 +60,10 @@ namespace OwLib
 	public:
 		virtual int GetContentHeight();
 		virtual int GetContentWidth();
-		virtual String GetControlType();
+		virtual wstring GetControlType();
 		virtual POINT GetDisplayOffset();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual void LineDown();
 		virtual void LineLeft();
 		virtual void LineRight();
@@ -81,7 +83,7 @@ namespace OwLib
 		virtual void PageLeft();
 		virtual void PageRight();
 		virtual void PageUp();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 		virtual void Update();
 		virtual void UpdateScrollBar();
 	};

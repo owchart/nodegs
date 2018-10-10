@@ -11,14 +11,15 @@
 #ifndef __CTABLE_H__
 #define __CTABLE_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "CList.h"
 
 namespace OwLib
 {
-	class CTable;
+	class  CTable;
 
-	class CRow
+	class  CRow
 	{
 	protected:
 		CTable *m_table;
@@ -34,7 +35,7 @@ namespace OwLib
 		void Set(int index, double value);
 	};
 
-	class CTable
+	class  CTable
 	{
 	protected:
 		int m_autoField;

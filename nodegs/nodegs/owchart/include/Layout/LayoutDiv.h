@@ -12,13 +12,14 @@
 #ifndef __LAYOUTDIV_H__
 #define __LAYOUTDIV_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Button\\Button.h"
 #include "Div.h"
 
 namespace OwLib
 {
-	class LayoutDivA : public DivA
+	class  LayoutDivA : public DivA
 	{
 	protected:
 		bool m_autoWrap;
@@ -31,11 +32,11 @@ namespace OwLib
 		virtual LayoutStyleA GetLayoutStyle();
 		virtual void SetLayoutStyle(LayoutStyleA layoutStyle);
 	public:
-		virtual String GetControlType();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual wstring GetControlType();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual bool OnResetLayout();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 		virtual void Update();
 	};
 }

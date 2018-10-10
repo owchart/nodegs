@@ -1,6 +1,6 @@
 package nodegs.base;
 
-import gaia.owchart.owchart_android.Sock.SocketListener;
+import owchart.owlib.Sock.SocketListener;
 
 /**
  * Created by gaia-todd on 2017/2/17.

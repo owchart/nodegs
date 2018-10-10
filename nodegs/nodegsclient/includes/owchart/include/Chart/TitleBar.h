@@ -11,6 +11,7 @@
 #ifndef __TITLEBAR_H__
 #define __TITLEBAR_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Base\\CPaint.h"
 #include "CTable.h"
@@ -20,41 +21,41 @@
 
 namespace OwLib
 {
-	class CDiv;
+	class  CDiv;
 
-	class CTitle : public CProperty
+	class  CTitle : public CProperty
 	{
 	protected:
 		int m_digit;
 		int m_fieldName;
-		String m_fieldText;
+		wstring m_fieldText;
 		TextMode m_fieldTextMode;
-		String m_fieldTextSeparator;
+		wstring m_fieldTextSeparator;
 		_int64 m_textColor;
 		bool m_visible;
 	public:
-		CTitle(int fieldName, const String& fieldText, _int64 color, int digit, bool visible);
+		CTitle(int fieldName, const wstring& fieldText, _int64 color, int digit, bool visible);
 		virtual int GetDigit();
 		virtual void SetDigit(int digit);
 		virtual int GetFieldName();
 		virtual void SetFieldName(int fieldName);
-		virtual String GetFieldText();
-		virtual void SetFieldText(const String& fieldText);
+		virtual wstring GetFieldText();
+		virtual void SetFieldText(const wstring& fieldText);
 		virtual TextMode GetFieldTextMode();
 		virtual void SetFieldTextMode(TextMode fieldTextMode);
-		virtual String GetFieldTextSeparator();
-		virtual void SetFieldTextSeparator(const String& fieldTextSeparator);
+		virtual wstring GetFieldTextSeparator();
+		virtual void SetFieldTextSeparator(const wstring& fieldTextSeparator);
 		virtual _int64 GetTextColor();
 		virtual void SetTextColor(_int64 textColor);
 		virtual bool IsVisible();
 		virtual void SetVisible(bool visible);
 	public:
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 
-	class TitleBar : public CProperty
+	class  TitleBar : public CProperty
 	{
 	protected:
 		bool m_allowUserPaint;
@@ -63,7 +64,7 @@ namespace OwLib
 		int m_height;
 		int m_maxLine;
 		bool m_showUnderLine;
-		String m_text;
+		wstring m_text;
 		_int64 m_underLineColor;
 		bool m_visible;
 	public:
@@ -82,17 +83,17 @@ namespace OwLib
 		virtual void SetMaxLine(int maxLine);
 		virtual bool ShowUnderLine();
 		virtual void SetShowUnderLine(bool showUnderLine);
-		virtual String GetText();
-		virtual void SetText(const String& text);
+		virtual wstring GetText();
+		virtual void SetText(const wstring& text);
 		virtual _int64 GetUnderLineColor();
 		virtual void SetUnderLineColor(_int64 underLineColor);
 		virtual bool IsVisible();
 		virtual void SetVisible(bool visible);
 	public:
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual void OnPaint(CPaint *paint, CDiv *div, const RECT& rect);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 #endif

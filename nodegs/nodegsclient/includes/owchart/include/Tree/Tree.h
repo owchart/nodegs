@@ -12,6 +12,7 @@
 #ifndef __TREE_H__
 #define __TREE_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Grid\\Grid.h"
 #include "..\\Grid\\GridColumn.h"
@@ -22,19 +23,19 @@
 
 namespace OwLib
 {
-	class TreeNodeA;
+	class  TreeNodeA;
 
-	class TreeA:public GridA
+	class  TreeA:public GridA
 	{
 	protected:
 		bool m_checkBoxes;
 		SIZE m_checkBoxSize;
-		String m_checkedImage;
-		String m_collapsedNodeImage;
-		String m_expendedNodeImage;
+		wstring m_checkedImage;
+		wstring m_collapsedNodeImage;
+		wstring m_expendedNodeImage;
 		TreeNodeA *m_movingNode;
 		SIZE m_nodeSize;
-		String m_unCheckedImage;
+		wstring m_unCheckedImage;
 	public:
 		vector<TreeNodeA*> m_nodes;
 		TreeA();
@@ -43,18 +44,18 @@ namespace OwLib
 		virtual void SetCheckBoxes(bool checkBoxes);
 		virtual SIZE GetCheckBoxSize();
 		virtual void SetCheckBoxSize(SIZE checkBoxSize);
-		virtual String GetCheckedImage();
-		virtual void SetCheckedImage(const String& checkedImage);
-		virtual String GetCollapsedNodeImage();
-		virtual void SetCollapsedNodeImage(const String& collapsedNodeImage);
-		virtual String GetExpendedNodeImage();
-		virtual void SetExpendedNodeImage(const String& expendedNodeImage);
+		virtual wstring GetCheckedImage();
+		virtual void SetCheckedImage(const wstring& checkedImage);
+		virtual wstring GetCollapsedNodeImage();
+		virtual void SetCollapsedNodeImage(const wstring& collapsedNodeImage);
+		virtual wstring GetExpendedNodeImage();
+		virtual void SetExpendedNodeImage(const wstring& expendedNodeImage);
 		virtual SIZE GetNodeSize();
 		virtual void SetNodeSize(SIZE nodeSize);
 		virtual vector<TreeNodeA*> GetSelectedNodes();
 		virtual void SetSelectedNodes(vector<TreeNodeA*> selectedNodes);
-		virtual String GetUnCheckedImage();
-		virtual void SetUnCheckedImage(const String& unCheckedImage);
+		virtual wstring GetUnCheckedImage();
+		virtual void SetUnCheckedImage(const wstring& unCheckedImage);
 	public:
 		void AppendNode(TreeNodeA *node);
 		void ClearNodes();
@@ -63,10 +64,10 @@ namespace OwLib
 		void Expend();
 		void ExpendAll();
 		vector<TreeNodeA*> GetChildNodes();
-		virtual String GetControlType();
+		virtual wstring GetControlType();
 		int GetNodeIndex(TreeNodeA *node);
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		void InsertNode(int index, TreeNodeA *node);
 		virtual void OnCellMouseDown(GridCell *cell, const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnCellMouseMove(GridCell *cell, const POINT& mp, MouseButtonsA button, int clicks, int delta);
@@ -74,7 +75,7 @@ namespace OwLib
 		virtual void OnPaintForeground(CPaint *paint, const RECT& clipRect);
 		virtual void OnPaintEditTextBox(GridCell *cell, CPaint *paint, const RECT& rect, const RECT& clipRect);
 		void RemoveNode(TreeNodeA *node);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 

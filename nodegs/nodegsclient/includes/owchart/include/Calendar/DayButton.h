@@ -11,15 +11,16 @@
 #ifndef __DAYBUTTON_H__
 #define __DAYBUTTON_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "CDay.h"
 #include "Calendar.h"
 
 namespace OwLib
 {
-	class CalendarA;
+	class  CalendarA;
 
-	class DayButton
+	class  DayButton
 	{
 	protected:
 		RECT m_bounds;

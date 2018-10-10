@@ -11,15 +11,16 @@
 #ifndef __CROSSLINETIP_H__
 #define __CROSSLINETIP_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Base\\CPaint.h"
 #include "CDiv.h"
 
 namespace OwLib
 {
-	class CDiv;
+	class  CDiv;
 
-	class CrossLineTip
+	class  CrossLineTip
 	{
 	protected:
 		bool m_allowUserPaint;
@@ -42,9 +43,9 @@ namespace OwLib
 		virtual void SetVisible(bool visible);
 	public:
 		virtual void OnPaint(CPaint *paint, CDiv *div, const RECT& rect);
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 #endif

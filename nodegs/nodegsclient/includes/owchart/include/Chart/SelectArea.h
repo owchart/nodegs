@@ -11,14 +11,15 @@
 #ifndef __SELECTAREA_H__
 #define __SELECTAREA_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "CDiv.h"
 
 namespace OwLib
 {
-	class CDiv;
+	class  CDiv;
 
-	class SelectArea : public CProperty
+	class  SelectArea : public CProperty
 	{
 	protected:
 		bool m_allowUserPaint;
@@ -47,10 +48,10 @@ namespace OwLib
 		virtual void SetVisible(bool visible);
 	public:
 		void Close();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual void OnPaint(CPaint *paint, CDiv *div, const RECT& rect);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 
 	};
 }

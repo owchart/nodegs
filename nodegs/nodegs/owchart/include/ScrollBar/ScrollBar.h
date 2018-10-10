@@ -11,12 +11,13 @@
 #ifndef __SCROLLBAR_H__
 #define __SCROLLBAR_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Button\\Button.h"
 
 namespace OwLib
 {
-	class ScrollBarA:public ControlA
+	class  ScrollBarA:public ControlA
 	{
 	private:
 		int m_timerID;
@@ -66,8 +67,8 @@ namespace OwLib
 		virtual ButtonA* GetReduceButton();
 		virtual ButtonA* GetScrollButton();
 	public:
-		virtual String GetControlType();
-		virtual vector<String> GetEventNames();
+		virtual wstring GetControlType();
+		virtual vector<wstring> GetEventNames();
 		virtual void LineAdd();
 		virtual void LineReduce();
 		void OnAddButtonMouseDown(const POINT& mp, MouseButtonsA button, int clicks, int delta);

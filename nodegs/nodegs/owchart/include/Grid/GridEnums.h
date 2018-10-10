@@ -12,18 +12,19 @@
 #ifndef __GRIDENUMS_H__
 #define __GRIDENUMS_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 
 namespace OwLib
 {
-	typedef enum GridColumnSortMode
+	typedef enum  GridColumnSortMode
 	{
 		GridColumnSortMode_Asc,
 		GridColumnSortMode_Desc,
 		GridColumnSortMode_None
 	};
 
-	typedef enum GridSelectionMode
+	typedef enum  GridSelectionMode
 	{
 		GridSelectionMode_SelectCell,
 		GridSelectionMode_SelectFullColumn,
@@ -31,7 +32,7 @@ namespace OwLib
 		GridSelectionMode_SelectNone
 	};
 
-	typedef enum GridCellEditMode
+	typedef enum  GridCellEditMode
 	{
         GridCellEditMode_DoubleClick,
         GridCellEditMode_None,

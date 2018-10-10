@@ -11,12 +11,13 @@
 #ifndef __CYEAR_H__
 #define __CYEAR_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "CMonth.h"
 
 namespace OwLib
 {
-	class CYear
+	class  CYear
 	{
 	protected:
 		int m_year;

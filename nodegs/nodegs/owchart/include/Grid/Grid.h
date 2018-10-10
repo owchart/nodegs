@@ -12,6 +12,7 @@
 #ifndef __GRID_H__
 #define __GRID_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "GridColumn.h"
 #include "GridRow.h"
@@ -23,16 +24,16 @@
 
 namespace OwLib
 {
-	class GridCell;
-	class GridColumn;
-	class GridRow;
-	class GridRowStyle;
+	class  GridCell;
+	class  GridColumn;
+	class  GridRow;
+	class  GridRowStyle;
 	
-	typedef void (*GridCellEvent) (void*, GridCell*, void*);
+	typedef  void (*GridCellEvent) (void*, GridCell*, void*);
 
-	typedef void (*GridCellMouseEvent)(void*, GridCell*, const POINT&, MouseButtonsA, int, int, void*);
+	typedef  void (*GridCellMouseEvent)(void*, GridCell*, const POINT&, MouseButtonsA, int, int, void*);
 
-	class GridRowCompare
+	class  GridRowCompare
 	{
 	public:
 		int m_columnIndex;
@@ -43,9 +44,9 @@ namespace OwLib
 		bool operator()(GridRow *x, GridRow *y);
 	};
 
-	class GridA;
+	class  GridA;
 
-	class GridSort
+	class  GridSort
 	{
 	public:
 		GridSort();
@@ -54,7 +55,7 @@ namespace OwLib
 		virtual void SortColumn(GridA *grid, GridColumn *column, GridColumnSortMode sortMode);
 	};
 
-	class GridA:public DivA
+	class  GridA:public DivA
 	{
 	private:
 		int m_timerID;
@@ -150,15 +151,15 @@ namespace OwLib
 		void ClearRows();
 		void EndUpdate();
 		GridColumn* GetColumn(int columnIndex);
-		GridColumn* GetColumn(const String& columnName);
+		GridColumn* GetColumn(const wstring& columnName);
 		vector<GridColumn*> GetColumns();
 		virtual int GetContentHeight();
 		virtual int GetContentWidth();
-		virtual String GetControlType();
+		virtual wstring GetControlType();
 		virtual POINT GetDisplayOffset();
-		virtual vector<String> GetEventNames();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual vector<wstring> GetEventNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		GridRow* GetRow(const POINT& mp);
 		GridRow* GetRow(int rowIndex);
 		vector<GridRow*> GetRows();
@@ -196,7 +197,7 @@ namespace OwLib
 		virtual void ResetHeaderLayout();
 		GridRow* SelectFrontRow();
 		GridRow* SelectNextRow();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 		virtual void SortColumn(GridA *grid, GridColumn *column, GridColumnSortMode sortMode);
 		virtual void Update();
 		void UpdateSortColumn();

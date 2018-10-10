@@ -11,14 +11,15 @@
 #ifndef __SCALEGRID_H__
 #define __SCALEGRID_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "CDiv.h"
 
 namespace OwLib
 {
-	class CDiv;
+	class  CDiv;
 
-	class ScaleGrid : public CProperty
+	class  ScaleGrid : public CProperty
 	{
 	protected:
 		bool m_allowUserPaint;
@@ -40,10 +41,10 @@ namespace OwLib
 		virtual bool IsVisible();
 		virtual void SetVisible(bool visible);
 	public:
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual void OnPaint(CPaint *paint, CDiv *div, const RECT& rect);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 #endif

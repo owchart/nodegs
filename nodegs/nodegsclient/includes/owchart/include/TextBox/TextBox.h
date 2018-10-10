@@ -12,6 +12,7 @@
 #ifndef __TEXTBOX_H__
 #define __TEXTBOX_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\ScrollBar\\HScrollBar.h"
 #include "..\\ScrollBar\\VScrollBar.h"
@@ -20,7 +21,7 @@
 
 namespace OwLib
 {
-	struct WordLine
+	struct  WordLine
 	{
 	public:
 		int m_end;
@@ -32,7 +33,7 @@ namespace OwLib
 		}
 	};
 
-	class TextBoxA : public DivA
+	class  TextBoxA : public DivA
 	{
 	private:
 		int m_tick;
@@ -46,7 +47,7 @@ namespace OwLib
 		int m_offsetX;
 		wchar_t m_passwordChar;
 		vector<RECTF> m_ranges;
-		stack<String> m_redoStack;
+		stack<wstring> m_redoStack;
 		bool m_readOnly;
 		bool m_rightToLeft;
 		_int64 m_selectionBackColor;
@@ -56,12 +57,12 @@ namespace OwLib
 		bool m_showCursor;
 		int m_startMovingIndex;
 		int m_stopMovingIndex;
-		String m_tempText;
+		wstring m_tempText;
 		_int64 m_tempTextForeColor;
 		HorizontalAlignA m_textAlign;
 		bool m_textChanged;
 		int TICK;
-		stack<String> m_undoStack;
+		stack<wstring> m_undoStack;
 		vector<SIZEF> m_wordsSize;
 		bool m_wordWrap;
 		void CursorDown();
@@ -71,7 +72,7 @@ namespace OwLib
 		void CursorRight();
 		void CursorUp();
 		void DeleteWord();
-		void InsertWord(const String& str);
+		void InsertWord(const wstring& str);
 		bool IsLineVisible(int index, double visiblePercent);
 		void SetMovingIndex(int sIndex, int eIndex);
 	public:
@@ -97,8 +98,8 @@ namespace OwLib
 		virtual void SetSelectionLength(int selectionLength);
 		virtual int GetSelectionStart();
 		virtual void SetSelectionStart(int selectionStart);
-		virtual String GetTempText();
-		virtual void SetTempText(const String& tempText);
+		virtual wstring GetTempText();
+		virtual void SetTempText(const wstring& tempText);
 		virtual _int64 GetTempTextForeColor();
 		virtual void SetTempTextForeColor(_int64 tempTextForeColor);
 		virtual HorizontalAlignA GetTextAlign();
@@ -111,10 +112,10 @@ namespace OwLib
 		void ClearRedoUndo();
 		virtual int GetContentHeight();
 		virtual int GetContentWidth();
-		virtual String GetControlType();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
-		String GetSelectionText();
+		virtual wstring GetControlType();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
+		wstring GetSelectionText();
 		virtual void OnChar(wchar_t ch);
 		virtual void OnCopy();
 		virtual void OnCut();
@@ -133,7 +134,7 @@ namespace OwLib
 		virtual void OnTimer(int timerID);
 		void Redo();
 		void SelectAll();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 		void Undo();
 		virtual void Update();
 	};

@@ -11,15 +11,16 @@
 #ifndef __PEXTEND_H__
 #define __PEXTEND_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "CPlot.h"
 #include "PlotBase.h"
 
 namespace OwLib
 {
-	class PlotBase;
+	class  PlotBase;
 
-	class P001:public PlotBase
+	class  P001:public PlotBase
 	{
 	public:
 		P001();
@@ -29,7 +30,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P002:public PlotBase
+	class  P002:public PlotBase
 	{
 	public:
 		P002();
@@ -39,7 +40,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P003:public PlotBase
+	class  P003:public PlotBase
 	{
 	public:
 		P003();
@@ -49,7 +50,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P004:public PlotBase
+	class  P004:public PlotBase
 	{
 	public:
 		P004();
@@ -58,7 +59,7 @@ namespace OwLib
 		virtual void OnMoveStart();
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
-	class P005:public PlotBase
+	class  P005:public PlotBase
 	{
 	protected:
 		RECT GetDownArrowRect(float x, float y, float width);
@@ -69,7 +70,7 @@ namespace OwLib
 		virtual void OnMoveStart();
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
-	class P006:public PlotBase
+	class  P006:public PlotBase
 	{
 	protected:
 		float* GetDropLineParams(map<int, PlotMark*> *pList);
@@ -81,7 +82,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P009:public PlotBase
+	class  P009:public PlotBase
 	{
 	public:
 		P009();
@@ -91,7 +92,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P010:public PlotBase
+	class  P010:public PlotBase
 	{
 	protected:
 		float* FibonacciEllipseParam(map<int, PlotMark*> *pList);
@@ -104,7 +105,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P011:public PlotBase
+	class  P011:public PlotBase
 	{
 	public:
 		P011();
@@ -115,7 +116,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P012:public PlotBase
+	class  P012:public PlotBase
 	{
 	protected:
 		vector<int> GetFibonacciTimeZonesParam(map<int,PlotMark*> *pList);
@@ -127,7 +128,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P014:public PlotBase
+	class  P014:public PlotBase
 	{
 	protected:
 		POINT m_oppositePoint;
@@ -143,7 +144,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P016:public PlotBase
+	class  P016:public PlotBase
 	{
 	public:
 		P016();
@@ -154,7 +155,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P017:public PlotBase
+	class  P017:public PlotBase
 	{
 	public:
 		P017();
@@ -166,7 +167,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P018:public PlotBase
+	class  P018:public PlotBase
 	{
 	public:
 		P018();
@@ -177,7 +178,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P019:public PlotBase
+	class  P019:public PlotBase
 	{
 	protected:
 		float* LevelGradingParams(double value1, double value2);
@@ -191,7 +192,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P020:public PlotBase
+	class  P020:public PlotBase
 	{
 	public:
 		P020();
@@ -201,7 +202,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P021:public PlotBase
+	class  P021:public PlotBase
 	{
 	public:
 		P021();
@@ -212,7 +213,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P022:public PlotBase
+	class  P022 : public PlotBase
 	{
 	public:
 		P022();
@@ -223,7 +224,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P023:public PlotBase
+	class  P023:public PlotBase
 	{
 	public:
 		P023();
@@ -234,7 +235,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P024:public PlotBase
+	class  P024:public PlotBase
 	{
 	protected:
 		void NullPoint(float x1, float y1, float x2, float y2, float *nullX, float *nullY);
@@ -247,7 +248,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P025:public PlotBase
+	class  P025:public PlotBase
 	{
 	protected:
 		float* GetParallelParams(map<int,PlotMark*> *pList);
@@ -259,7 +260,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P026:public PlotBase
+	class  P026:public PlotBase
 	{
 	protected:
 		float* GetPercentParams(double value1, double value2);
@@ -273,7 +274,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P027:public PlotBase
+	class  P027:public PlotBase
 	{
 	protected:
 		int m_period;
@@ -288,7 +289,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P028:public PlotBase
+	class  P028:public PlotBase
 	{
 	protected:
 		SIZE m_textSize;
@@ -300,7 +301,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P029:public PlotBase
+	class  P029:public PlotBase
 	{
 	public:
 		P029();
@@ -310,7 +311,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P030:public PlotBase
+	class  P030:public PlotBase
 	{
 	public:
 		P030();
@@ -321,7 +322,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P031:public PlotBase
+	class  P031:public PlotBase
 	{
 	public:
 		P031();
@@ -331,7 +332,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P032:public PlotBase
+	class  P032:public PlotBase
 	{
 	protected:
 		POINT m_oppositePoint;
@@ -345,7 +346,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P033:public PlotBase
+	class  P033:public PlotBase
 	{
 	public:
 		P033();
@@ -355,7 +356,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P034:public PlotBase
+	class  P034:public PlotBase
 	{
 	public:
 		P034();
@@ -366,7 +367,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P035:public PlotBase
+	class  P035:public PlotBase
 	{
 	public:
 		P035();
@@ -377,7 +378,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P036:public PlotBase
+	class  P036:public PlotBase
 	{
 	protected:
 		double GetSEChannelSD(map<int,PlotMark*> *pList);
@@ -390,7 +391,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P037:public PlotBase
+	class  P037:public PlotBase
 	{
 	public:
 		P037();
@@ -400,7 +401,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P038:public PlotBase
+	class  P038:public PlotBase
 	{
 	protected:
 		float* GetSymmetricTriangleParams(map<int,PlotMark*> *pList);
@@ -412,7 +413,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P041:public PlotBase
+	class  P041:public PlotBase
 	{
 	protected:
 		double* GetTimeRulerParams(map<int,PlotMark*> *pList);
@@ -425,7 +426,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P042:public PlotBase
+	class  P042:public PlotBase
 	{
 	public:
 		P042();
@@ -435,7 +436,7 @@ namespace OwLib
 		virtual void OnPaintGhost(CPaint *paint);
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
-	class P043:public PlotBase
+	class  P043:public PlotBase
 	{
 	protected:
 		RECT GetUpArrowRect(float x, float y, float width);
@@ -447,7 +448,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P044:public PlotBase
+	class  P044:public PlotBase
 	{
 	public:
 		P044();
@@ -457,7 +458,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P045:public PlotBase
+	class  P045:public PlotBase
 	{
 	protected:
 		float* GetWaveRulerParams(double value1, double value2);
@@ -470,7 +471,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P046:public PlotBase
+	class  P046:public PlotBase
 	{
 	protected:
 		double* GetTironelLevelsParams(map<int,PlotMark*> *pList);
@@ -482,7 +483,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P047:public PlotBase
+	class  P047:public PlotBase
 	{
 	protected:
 		double GetRRCRange(map<int,PlotMark*> *pList, float *param);
@@ -495,7 +496,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P048:public P026
+	class  P048:public P026
 	{
 	public: 
 		P048();
@@ -506,7 +507,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P049:public P032
+	class  P049:public P032
 	{
 	protected:
 		ActionType GetAction(const POINT& mp);
@@ -519,7 +520,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P050:public PlotBase
+	class  P050:public PlotBase
 	{
 	public:
 		P050();
@@ -531,7 +532,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P051:public PlotBase
+	class  P051:public PlotBase
 	{
 	public:
 		P051();
@@ -541,7 +542,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P052:public P025
+	class  P052:public P025
 	{
 	protected:
 		void GetLine3Params(map<int,PlotMark*> *pList, float *k, float *d, float *x4);
@@ -554,7 +555,7 @@ namespace OwLib
         virtual void OnPaintGhost(CPaint *paint);
 	};
 
-	class P053:public PlotBase
+	class  P053:public PlotBase
 	{
 	public:
 		P053();
@@ -565,7 +566,7 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class P054:public P042
+	class  P054:public P042
 	{
 	protected:
 		float* GetGoldenRatioAimParams(map<int,PlotMark*> *pList);
@@ -576,10 +577,10 @@ namespace OwLib
 		virtual void Paint(CPaint *paint, map<int,PlotMark*> *pList, _int64 lineColor);
 	};
 
-	class PFactory
+	class  PFactory
 	{
 	public:
-		static CPlot* CreatePlot(const String& plotType);
+		static CPlot* CreatePlot(const wstring& plotType);
 	};
 }
 #endif

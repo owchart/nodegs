@@ -11,6 +11,7 @@
 #ifndef __DAYDIV_H__
 #define __DAYDIV_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "DayButton.h"
 #include "CYears.h"
@@ -21,12 +22,12 @@
 
 namespace OwLib
 {
-	class DayButton;
-	class HeadDiv;
-	class CalendarA;
-	class TimeDiv;
+	class  DayButton;
+	class  HeadDiv;
+	class  CalendarA;
+	class  TimeDiv;
 
-	class DayDiv
+	class  DayDiv
 	{
 	protected:
 		int m_am_ClickRowFrom;

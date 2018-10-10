@@ -6,19 +6,20 @@
 *                                                                             *
 *               Copyright (c) 2016-2016, Lord's owchart. All rights reserved. *
 *                                                                             *
-*******************************************************************************/
+******************************************************************************/
 
 #ifndef __CLIST_H__
 #define __CLIST_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 
 namespace OwLib
 {
 	template <class numtype>
-	class CList
+	class  CList
 	{
-	protected:
+	public:
 		numtype *m_ary;
 		int m_size;
 		int m_capacity;
@@ -48,11 +49,16 @@ namespace OwLib
             m_step = 4;
 		}
 
+		int capacity()
+		{
+			return m_capacity;
+		}
+
 		void clear()
 		{
 			if(m_ary)
 			{
-				delete[] m_ary;
+				VirtualFree(m_ary, 0, MEM_RELEASE);
 				m_ary = 0;
 			}
 			m_size = 0;
@@ -68,43 +74,37 @@ namespace OwLib
 			m_size += 1;
 			if(!m_ary)
 			{
-				m_ary = new numtype[m_capacity];
+				m_ary = (numtype*)VirtualAlloc(0, sizeof(numtype) * m_capacity, MEM_COMMIT, PAGE_READWRITE); 
 			}
 			else
 			{
 				if(m_size > m_capacity)
 				{
-					m_capacity += m_step;
-					numtype *newAry = new numtype[m_capacity];
-					for(int i = 0; i < m_size - 1; i++)
+					numtype *newAry = (numtype*)VirtualAlloc(m_ary, sizeof(numtype) * m_capacity, MEM_COMMIT, PAGE_READWRITE);
+					if(newAry)
 					{
-						if(i < index)
-						{
-							newAry[i] = m_ary[i];
-						}
-						else if( i>= index)
-						{
-							newAry[i + 1] = m_ary[i];
-						}
+						m_ary = newAry;
 					}
-					delete[] m_ary;
-					m_ary = newAry;
-				}
-				else
-				{
-					numtype last = 0;
-					for(int i = index; i < m_size; i++)
+					else
 					{
-						if(i == index)
-						{
-							last = m_ary[i];
-						}
-						else if(i > index)
-						{
-							numtype temp = m_ary[i];
-							m_ary[i] = last;
-							last = temp;
-						}
+						newAry = (numtype*)VirtualAlloc(0, sizeof(numtype) * m_capacity, MEM_COMMIT, PAGE_READWRITE);
+						MoveMemory(newAry, m_ary, sizeof(numtype) * (m_size - 1));
+						VirtualFree(m_ary, 0, MEM_RELEASE);
+						m_ary = newAry;
+					}
+				}
+				numtype last = 0;
+				for(int i = index; i < m_size; i++)
+				{
+					if(i == index)
+					{
+						last = m_ary[i];
+					}
+					else if(i > index)
+					{
+						numtype temp = m_ary[i];
+						m_ary[i] = last;
+						last = temp;
 					}
 				}
 			}
@@ -116,20 +116,25 @@ namespace OwLib
 			m_size += 1;
 			if(!m_ary)
 			{
-				m_ary = new numtype[m_capacity];
+				m_ary = (numtype*)VirtualAlloc(0, sizeof(numtype) * m_capacity, MEM_COMMIT, PAGE_READWRITE); 
 			}
 			else
 			{
 				if(m_size > m_capacity)
 				{
 					m_capacity += m_step;
-					numtype *newAry = new numtype[m_capacity];
-					for(int i = 0;i < m_size - 1; i++)
+					numtype *newAry = (numtype*)VirtualAlloc(m_ary, sizeof(numtype) * m_capacity, MEM_COMMIT, PAGE_READWRITE);
+					if(newAry)
 					{
-						newAry[i] = m_ary[i];
+						m_ary = newAry;
 					}
-					delete[] m_ary;
-					m_ary = newAry;
+					else
+					{
+						newAry = (numtype*)VirtualAlloc(0, sizeof(numtype) * m_capacity, MEM_COMMIT, PAGE_READWRITE);
+						MoveMemory(newAry, m_ary, sizeof(numtype) * (m_size - 1));
+						VirtualFree(m_ary, 0, MEM_RELEASE);
+						m_ary = newAry;
+					}
 				}
 			}
 			m_ary[m_size - 1] = value;
@@ -147,19 +152,24 @@ namespace OwLib
 				m_capacity -= m_step;
 				if(m_capacity > 0)
 				{
-					numtype *newAry = new numtype[m_capacity];
-					for(int i = 0; i < m_size; i++)
+					numtype *newAry = (numtype*)VirtualAlloc(m_ary, sizeof(numtype) * m_capacity, MEM_COMMIT, PAGE_READWRITE);
+					if(newAry)
 					{
-						newAry[i] = m_ary[i];
+						m_ary = newAry;
 					}
-					delete[] m_ary;
-					m_ary = newAry;
+					else
+					{
+						newAry = (numtype*)VirtualAlloc(0, sizeof(numtype) * m_capacity, MEM_COMMIT, PAGE_READWRITE);
+						MoveMemory(newAry, m_ary, sizeof(numtype) * m_size);
+						VirtualFree(m_ary, 0, MEM_RELEASE);
+						m_ary = newAry;
+					}
 				}
 				else
 				{
 					if(m_ary)
 					{
-						delete[] m_ary;
+						VirtualFree(m_ary, 0, MEM_RELEASE);
 						m_ary = 0;
 					}
 				}
@@ -176,13 +186,18 @@ namespace OwLib
 			m_capacity = capacity;
 			if(m_ary)
 			{
-				numtype *newAry = new numtype[m_capacity];
-				for(int i = 0; i < m_size - 1; i++)
+				numtype *newAry = (numtype*)VirtualAlloc(m_ary, sizeof(numtype) * m_capacity, MEM_COMMIT, PAGE_READWRITE);
+				if(newAry)
 				{
-					newAry[i] = m_ary[i];
+					m_ary = newAry;
 				}
-				delete[] m_ary;
-				m_ary = newAry;
+				else
+				{
+					newAry = (numtype*)VirtualAlloc(0, sizeof(numtype) * m_capacity, MEM_COMMIT, PAGE_READWRITE);
+					MoveMemory(newAry, m_ary, sizeof(numtype) * (m_size - 1));
+					VirtualFree(m_ary, 0, MEM_RELEASE);
+					m_ary = newAry;
+				}
 			}
 		}
 

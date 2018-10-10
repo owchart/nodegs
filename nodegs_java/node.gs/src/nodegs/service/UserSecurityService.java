@@ -6,7 +6,7 @@
 package nodegs.service;
 
 import com.mongodb.*;
-import gaia.owchart.owchart_android.Base.CStr;
+import owchart.owlib.Base.CStr;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;

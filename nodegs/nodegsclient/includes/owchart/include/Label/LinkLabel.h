@@ -11,21 +11,22 @@
 #ifndef __LINKLABEL_H__
 #define __LINKLABEL_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "Label.h"
 
 namespace OwLib
 {
-	typedef enum LinkBehaviorA
+	typedef enum  LinkBehaviorA
 	{
 		LinkBehaviorA_AlwaysUnderLine,
 		LinkBehaviorA_HoverUnderLine,
 		LinkBehaviorA_NeverUnderLine
 	};
 
-	class LabelA;
+	class  LabelA;
 
-	class LinkLabelA : public LabelA
+	class  LinkLabelA : public LabelA
 	{
 	protected:
 		_int64 m_activeLinkColor;
@@ -53,16 +54,16 @@ namespace OwLib
 		virtual _int64 GetVisitedLinkColor();
 		virtual void SetVisitedLinkColor(_int64 visitedLinkColor);
 	public:
-		virtual String GetControlType();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual wstring GetControlType();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual void OnClick(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnMouseDown(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnMouseEnter(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnMouseLeave(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnMouseUp(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnPaintForeground(CPaint *paint, const RECT& clipRect);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 #endif

@@ -11,6 +11,7 @@
 #ifndef __CHART_H__
 #define __CHART_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Base\\CStr.h"
 #include "..\\Base\\CMathLib.h"
@@ -22,17 +23,17 @@
 
 namespace OwLib
 {
-	class CDiv;
-	class CPlot;
-	class BaseShape;
-	class BarShape;
-	class PointShape;
-	class CandleShape;
-	class PolylineShape;
-	class TextShape;
-	class ControlA;
-	class VScale;
-	class ChartA:public ControlA
+	class  CDiv;
+	class  CPlot;
+	class  BaseShape;
+	class  BarShape;
+	class  PointShape;
+	class  CandleShape;
+	class  PolylineShape;
+	class  TextShape;
+	class  ControlA;
+	class  VScale;
+	class  ChartA:public ControlA
 	{
 	private:
 		int m_timerID;
@@ -51,7 +52,7 @@ namespace OwLib
 		vector<CDiv*> m_divs;
 		int m_firstVisibleIndex;
 		int m_hResizeType;
-		String m_hScaleFieldText;
+		wstring m_hScaleFieldText;
 		double m_hScalePixel;
 		bool m_isMouseMove;
 		bool m_isScrollCross;
@@ -140,8 +141,8 @@ namespace OwLib
 		virtual void SetDataSource(CTable *dataSource);
 		virtual int GetFirstVisibleIndex();
 		virtual void SetFirstVisibleIndex(int firstVisibleIndex);
-		virtual String GetHScaleFieldText();
-		virtual void SetHScaleFieldText(const String& hScaleFieldText);
+		virtual wstring GetHScaleFieldText();
+		virtual void SetHScaleFieldText(const wstring& hScaleFieldText);
 		virtual double GetHScalePixel();
 		virtual void SetHScalePixel(double hScalePixel);
 		virtual int GetLastVisibleIndex();
@@ -183,7 +184,7 @@ namespace OwLib
 		virtual double DivMaxOrMin(int index, CDiv *div, int flag);
 		virtual CDiv* FindDiv(const POINT& mp);
 		virtual CDiv* FindDiv(BaseShape *shape);
-		virtual String GetControlType();
+		virtual wstring GetControlType();
 		virtual int GetDateType(DateType dateType);
 		virtual DateType GetDateType(int dateType);
 		virtual vector<CDiv*> GetDivs();
@@ -193,8 +194,8 @@ namespace OwLib
 		virtual CDiv* GetMouseOverDiv();
 		virtual int GetMouseOverIndex();
 		double GetNumberValue(CDiv *div, const POINT& mp, AttachVScale attachVScale);
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual int GetShapesCount(int field);
 		virtual float GetX(int index);
 		virtual float GetY(CDiv *div,double value,AttachVScale attach);
@@ -219,7 +220,7 @@ namespace OwLib
 		virtual bool SelectBar(CDiv *div, float mpY, int fieldName, int fieldName2, int styleField, AttachVScale attachVScale, int curIndex);
 		virtual bool SelectCandle(CDiv *div, float mpY, int highField, int lowField, int styleField, AttachVScale attachVScale, int curIndex);
 		virtual bool SelectPolyline(CDiv *div, const POINT& mp, int fieldName, float lineWidth, AttachVScale attachVScale, int curIndex);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 		virtual void SetVisibleIndex(int firstVisibleIndex, int lastVisibleIndex);
 		virtual void Update();
 		virtual void ZoomIn();

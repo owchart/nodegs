@@ -11,6 +11,7 @@
 #ifndef __BASESHAPE_H__
 #define __BASESHAPE_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Base\\CPaint.h"
 #include "Enums.h"
@@ -20,9 +21,9 @@
 
 namespace OwLib
 {
-	class CDiv;
-	class ChartA;
-	class BaseShape : CProperty
+	class  CDiv;
+	class  ChartA;
+	class  BaseShape : public CProperty
 	{
 	protected:
 		bool m_allowUserPaint;
@@ -46,28 +47,28 @@ namespace OwLib
 		virtual void SetZOrder(int zOrder);
 	public:
 		virtual int GetBaseField();
-		virtual String GetFieldText(int fieldName);
+		virtual wstring GetFieldText(int fieldName);
 		virtual int* GetFields(int *length);
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual _int64 GetSelectedColor();
 		virtual void OnPaint(CPaint *paint, CDiv *div, const RECT& rect);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 
-	class CandleShape:public BaseShape
+	class  CandleShape : public BaseShape
 	{
 	protected:
 		int m_closeField;
-		String m_closeFieldText;
+		wstring m_closeFieldText;
 		int m_colorField;
 		_int64 m_downColor;
 		int m_highField;
-		String m_highFieldText;
+		wstring m_highFieldText;
 		int m_lowField;
-		String m_lowFieldText;
+		wstring m_lowFieldText;
 		int m_openField;
-		String m_openFieldText;
+		wstring m_openFieldText;
 		bool m_showMaxMin;
 		CandleStyle m_style;
 		int m_styleField;
@@ -77,24 +78,24 @@ namespace OwLib
 		CandleShape();
 		int GetCloseField();
 		void SetCloseField(int closeField);
-		String GetCloseFieldText();
-		void SetCloseFieldText(const String& closeFieldText);
+		wstring GetCloseFieldText();
+		void SetCloseFieldText(const wstring& closeFieldText);
 		int GetColorField();
 		void SetColorField(int colorField);
 		_int64 GetDownColor();
 		void SetDownColor(_int64 downColor);
 		int GetHighField();
 		void SetHighField(int highField);
-		String GetHighFieldText();
-		void SetHighFieldText(const String& highFieldText);
+		wstring GetHighFieldText();
+		void SetHighFieldText(const wstring& highFieldText);
 		int GetLowField();
 		void SetLowField(int lowField);
-		String GetLowFieldText();
-		void SetLowFieldText(const String& lowFieldText);
+		wstring GetLowFieldText();
+		void SetLowFieldText(const wstring& lowFieldText);
 		int GetOpenField();
 		void SetOpenField(int openField);
-		String GetOpenFieldText();
-		void SetOpenFieldText(const String& openFieldText);
+		wstring GetOpenFieldText();
+		void SetOpenFieldText(const wstring& openFieldText);
 		bool GetShowMaxMin();
 		void SetShowMaxMin(bool showMaxMin);
 		CandleStyle GetStyle();
@@ -107,24 +108,24 @@ namespace OwLib
 		void SetUpColor(_int64 upColor);
 	public:
 		virtual int GetBaseField();
-		virtual String GetFieldText(int fieldName);
+		virtual wstring GetFieldText(int fieldName);
 		virtual int* GetFields(int *length);
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual _int64 GetSelectedColor();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 
-	class BarShape:public BaseShape
+	class  BarShape:public BaseShape
 	{
 	protected:
 		int m_colorField;
 		_int64 m_downColor;
 		int m_fieldName;
 		int m_fieldName2;
-		String m_fieldText;
-		String m_fieldText2;
-		int m_lineWidth;
+		wstring m_fieldText;
+		wstring m_fieldText2;
+		float m_lineWidth;
 		BarStyle m_style;
 		int m_styleField;
 		_int64 m_upColor;
@@ -138,12 +139,12 @@ namespace OwLib
 		void SetFieldName(int fieldName);
 		int GetFieldName2();
 		void SetFieldName2(int fieldName2);
-		String GetFieldText();
-		void SetFieldText(const String& fieldText);
-		String GetFieldText2();
-		void SetFieldText2(const String& fieldText2);
-		int GetLineWidth();
-		void SetLineWidth(int lineWidth);
+		wstring GetFieldText();
+		void SetFieldText(const wstring& fieldText);
+		wstring GetFieldText2();
+		void SetFieldText2(const wstring& fieldText2);
+		float GetLineWidth();
+		void SetLineWidth(float lineWidth);
 		BarStyle GetStyle();
 		void SetStyle(BarStyle style);
 		int GetStyleField();
@@ -152,24 +153,24 @@ namespace OwLib
 		void SetUpColor(_int64 upColor);
 	public:
 		virtual int GetBaseField();
-		virtual String GetFieldText(int fieldName);
+		virtual wstring GetFieldText(int fieldName);
 		virtual int* GetFields(int *length);
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual _int64 GetSelectedColor();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 
-	class PolylineShape:public BaseShape
+	class  PolylineShape:public BaseShape
 	{
 	protected:
 		_int64 m_color;
 		int m_colorField;
 		int m_fieldName;
-		String m_fieldText;
+		wstring m_fieldText;
 		_int64 m_fillColor;
 		PolylineStyle m_style;
-		int m_width;
+		float m_width;
 	public:
 		PolylineShape();
 		_int64 GetColor();
@@ -178,25 +179,25 @@ namespace OwLib
 		void SetColorField(int colorField);
 		int GetFieldName();
 		void SetFieldName(int fieldName);
-		String GetFieldText();
-		void SetFieldText(const String& fieldText);
+		wstring GetFieldText();
+		void SetFieldText(const wstring& fieldText);
 		_int64 GetFillColor();
 		void SetFillColor(_int64 fillColor);
 		PolylineStyle GetStyle();
 		void SetStyle(PolylineStyle style);
-		int GetWidth();
-		void SetWidth(int width);
+		float GetWidth();
+		void SetWidth(float width);
 	public:
 		virtual int GetBaseField();
-		virtual String GetFieldText(int fieldName);
+		virtual wstring GetFieldText(int fieldName);
 		virtual int* GetFields(int *length);
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual _int64 GetSelectedColor();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 
-	class TextShape:public BaseShape
+	class  TextShape:public BaseShape
 	{
 	protected:
 		int m_colorField;
@@ -204,7 +205,7 @@ namespace OwLib
 		FONT *m_font;
 		_int64 m_foreColor;
 		int m_styleField;
-		String m_text;
+		wstring m_text;
 	public:
 		TextShape();
 		virtual ~TextShape();
@@ -218,12 +219,12 @@ namespace OwLib
 		void SetForeColor(_int64 foreColor);
 		int GetStyleField();
 		void SetStyleField(int styleField);
-		String GetText();
-		void SetText(const String& text);
+		wstring GetText();
+		void SetText(const wstring& text);
 	public:
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 #endif

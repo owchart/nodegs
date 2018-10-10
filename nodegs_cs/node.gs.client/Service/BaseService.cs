@@ -378,7 +378,7 @@ namespace OwLibCT
         /// <param name="timeout">超时</param>
         /// <returns>状态</returns>
         [DllImport("owsock_client.dll", EntryPoint = "ConnectToServer", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-        public extern static int ConnectToServer(int proxyType, String ip, int port, String proxyIp, int proxyPort, String proxyUserName, String proxyUserPwd, String proxyDomain, int timeout);
+        public extern static int ConnectToServer(int type, int proxyType, String ip, int port, String proxyIp, int proxyPort, String proxyUserName, String proxyUserPwd, String proxyDomain, int timeout);
 
         /// <summary>
         /// 注册回调
@@ -425,7 +425,7 @@ namespace OwLibCT
         /// <param name="port">端口</param>
         public static int Connect(String ip, int port)
         {
-            int socketID = ConnectToServer(0, ip, port, "", 0, "", "", "", 30000);
+            int socketID = ConnectToServer(0, 0, ip, port, "", 0, "", "", "", 30000);
             return socketID;
         }
 

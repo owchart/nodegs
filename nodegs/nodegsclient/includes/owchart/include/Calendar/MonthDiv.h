@@ -11,6 +11,7 @@
 #ifndef __MONTHDIV_H__
 #define __MONTHDIV_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "MonthButton.h"
 #include "HeadDiv.h"
@@ -18,12 +19,12 @@
 
 namespace OwLib
 {
-	class MonthButton;
-	class HeadDiv;
-	class CalendarA;
-	class TimeDiv;
+	class  MonthButton;
+	class  HeadDiv;
+	class  CalendarA;
+	class  TimeDiv;
 
-	class MonthDiv
+	class  MonthDiv
 	{
 	protected:
 		int m_am_Direction;
@@ -31,6 +32,7 @@ namespace OwLib
 		int m_am_TotalTick;
 		CalendarA *m_calendar;
 		int m_year;
+	public:
 		vector<MonthButton*> m_monthButtons;
 		vector<MonthButton*> m_monthButtons_am;
 	public:

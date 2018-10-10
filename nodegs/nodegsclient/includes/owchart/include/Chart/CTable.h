@@ -11,14 +11,15 @@
 #ifndef __CTABLE_H__
 #define __CTABLE_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "CList.h"
 
 namespace OwLib
 {
-	class CTable;
+	class  CTable;
 
-	class CRow
+	class  CRow
 	{
 	protected:
 		CTable *m_table;
@@ -34,7 +35,7 @@ namespace OwLib
 		void Set(int index, double value);
 	};
 
-	class CTable
+	class  CTable
 	{
 	protected:
 		int m_autoField;
@@ -50,7 +51,10 @@ namespace OwLib
 		CTable();
 		virtual ~CTable();
 		int AUTOFIELD();
-		static int NULLFIELD();
+		static inline int NULLFIELD()
+		{
+			return -1;
+		}
 		void AddColumn(int colName);
 		void AddRow(double pk, double *ary, int size);
 		int ColumnsCount();
@@ -61,7 +65,10 @@ namespace OwLib
 		double Get(double pk, int colName);
 		double Get2(int rowIndex, int colName);
 		double Get3(int rowIndex, int colIndex);
-		bool IsNaN(double value);
+		static inline bool IsNaN(double value)
+		{
+			return ((*(((long long*) &value)) & 0x7fffffffffffffffL) > 0x7ff0000000000000L);
+		}
 		void RemoveAt(int rowIndex);
 		void RemoveColumn(int name);
 		int RowsCount();

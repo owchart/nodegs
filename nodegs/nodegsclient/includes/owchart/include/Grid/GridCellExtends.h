@@ -12,6 +12,7 @@
 #ifndef __GRIDCELLEXTENDS_H__
 #define __GRIDCELLEXTENDS_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "GridCell.h"
 #include "GridColumn.h"
@@ -20,20 +21,20 @@
 
 namespace OwLib
 {
-	class GridCell;
-	class GridColumn;
-	class GridRow;
-	class GridA;
-	class ButtonA;
-	class CheckBoxA;
-	class ComboBoxA;
-	class DateTimePickerA;
+	class  GridCell;
+	class  GridColumn;
+	class  GridRow;
+	class  GridA;
+	class  ButtonA;
+	class  CheckBoxA;
+	class  ComboBoxA;
+	class  DateTimePickerA;
 	class LabelA;
-	class SpinA;
-	class RadioButtonA;
-	class TextBoxA;
+	class  SpinA;
+	class  RadioButtonA;
+	class  TextBoxA;
 
-	class GridBoolCell : public GridCell
+	class  GridBoolCell : public GridCell
 	{
 	protected:
 		bool m_value;
@@ -48,16 +49,16 @@ namespace OwLib
 		virtual float GetFloat();
 		virtual int GetInt();
 		virtual _int64 GetLong();
-		virtual String GetString();
+		virtual wstring GetString();
 	    virtual void SetBool(bool value);
         virtual void SetDouble(double value);
         virtual void SetFloat(float value);
         virtual void SetInt(int value);
         virtual void SetLong(_int64 value);
-        virtual void SetString(const String& value);
+        virtual void SetString(const wstring& value);
 	};
 
-	class GridButtonCell: public GridControlCell
+	class  GridButtonCell: public GridControlCell
 	{
 	public:
 		GridButtonCell();
@@ -65,7 +66,7 @@ namespace OwLib
 		ButtonA* GetButton();
 	};
 
-	class GridCheckBoxCell : public GridControlCell
+	class  GridCheckBoxCell : public GridControlCell
 	{
 	protected:
 	public:
@@ -78,16 +79,16 @@ namespace OwLib
 		virtual float GetFloat();
 		virtual int GetInt();
 		virtual _int64 GetLong();
-		virtual String GetString();
+		virtual wstring GetString();
 		virtual void SetBool(bool value);
 		virtual void SetDouble(double value);
         virtual void SetFloat(float value);
         virtual void SetInt(int value);
         virtual void SetLong(_int64 value);
-        virtual void SetString(const String& value);
+        virtual void SetString(const wstring& value);
 	};
 
-	class GridComboBoxCell : public GridControlCell
+	class  GridComboBoxCell : public GridControlCell
 	{
 	public:
 		GridComboBoxCell();
@@ -99,16 +100,18 @@ namespace OwLib
 		virtual float GetFloat();
 		virtual int GetInt();
 		virtual _int64 GetLong();
-		virtual String GetString();
+		virtual wstring GetString();
+		virtual void OnAdd();
+        virtual void OnRemove();
 		virtual void SetBool(bool value);
 		virtual void SetDouble(double value);
         virtual void SetFloat(float value);
         virtual void SetInt(int value);
         virtual void SetLong(_int64 value);
-        virtual void SetString(const String& value);
+        virtual void SetString(const wstring& value);
 	};
 
-	class GridDateTimePickerCell : public GridControlCell
+	class  GridDateTimePickerCell : public GridControlCell
 	{
 	public:
 		GridDateTimePickerCell();
@@ -116,7 +119,7 @@ namespace OwLib
 		DateTimePickerA* GetDatePicker();
 	};
 
-	class GridDivCell : public GridControlCell
+	class  GridDivCell : public GridControlCell
 	{
 	public:
 		GridDivCell();
@@ -124,7 +127,7 @@ namespace OwLib
 		DivA* GetDiv();
 	};
 
-	class GridDoubleCell : public GridCell
+	class  GridDoubleCell : public GridCell
 	{
 	protected:
 		double m_value;
@@ -139,16 +142,16 @@ namespace OwLib
 		virtual float GetFloat();
 		virtual int GetInt();
 		virtual _int64 GetLong();
-		virtual String GetString();
+		virtual wstring GetString();
 		virtual void SetBool(bool value);
         virtual void SetDouble(double value);
         virtual void SetFloat(float value);
         virtual void SetInt(int value);
         virtual void SetLong(_int64 value);
-        virtual void SetString(const String& value);
+        virtual void SetString(const wstring& value);
 	};
 
-	class GridFloatCell : public GridCell
+	class  GridFloatCell : public GridCell
 	{
 	protected:
 		float m_value;
@@ -163,16 +166,16 @@ namespace OwLib
 		virtual float GetFloat();
 		virtual int GetInt();
 		virtual _int64 GetLong();
-		virtual String GetString();
+		virtual wstring GetString();
 		virtual void SetBool(bool value);
         virtual void SetDouble(double value);
         virtual void SetFloat(float value);
         virtual void SetInt(int value);
         virtual void SetLong(_int64 value);
-        virtual void SetString(const String& value);
+        virtual void SetString(const wstring& value);
 	};
 
-	class GridIntCell : public GridCell
+	class  GridIntCell : public GridCell
 	{
 	protected:
 		int m_value;
@@ -187,16 +190,16 @@ namespace OwLib
 		virtual float GetFloat();
 		virtual int GetInt();
 		virtual _int64 GetLong();
-		virtual String GetString();
+		virtual wstring GetString();
 		virtual void SetBool(bool value);
         virtual void SetDouble(double value);
         virtual void SetFloat(float value);
         virtual void SetInt(int value);
         virtual void SetLong(_int64 value);
-        virtual void SetString(const String& value);
+        virtual void SetString(const wstring& value);
 	};
 
-	class GridLabelCell : public GridControlCell
+	class  GridLabelCell : public GridControlCell
 	{
 	public:
 		GridLabelCell();
@@ -204,7 +207,7 @@ namespace OwLib
 		LabelA* GetLabel();
 	};
 
-	class GridLongCell : public GridCell
+	class  GridLongCell : public GridCell
 	{
 	protected:
 		_int64 m_value;
@@ -219,16 +222,16 @@ namespace OwLib
 		virtual float GetFloat();
 		virtual int GetInt();
 		virtual _int64 GetLong();
-		virtual String GetString();
+		virtual wstring GetString();
 		virtual void SetBool(bool value);
         virtual void SetDouble(double value);
         virtual void SetFloat(float value);
         virtual void SetInt(int value);
         virtual void SetLong(_int64 value);
-        virtual void SetString(const String& value);
+        virtual void SetString(const wstring& value);
 	};
 
-	class GridRadioButtonCell : public GridControlCell
+	class  GridRadioButtonCell : public GridControlCell
 	{
 	public:
 		GridRadioButtonCell();
@@ -240,16 +243,16 @@ namespace OwLib
 		virtual float GetFloat();
 		virtual int GetInt();
 		virtual _int64 GetLong();
-		virtual String GetString();
+		virtual wstring GetString();
 		virtual void SetBool(bool value);
 		virtual void SetDouble(double value);
         virtual void SetFloat(float value);
         virtual void SetInt(int value);
         virtual void SetLong(_int64 value);
-        virtual void SetString(const String& value);
+        virtual void SetString(const wstring& value);
 	};
 
-	class GridSpinCell : public GridControlCell
+	class  GridSpinCell : public GridControlCell
 	{
 	public:
 		GridSpinCell();
@@ -268,13 +271,13 @@ namespace OwLib
         virtual void SetLong(_int64 value);
 	};
 
-	class GridStringCell : public GridCell
+	class  GridStringCell : public GridCell
 	{
 	protected:
-		String m_value;
+		wstring m_value;
 	public:
 		GridStringCell();
-		GridStringCell(const String& value);
+		GridStringCell(const wstring& value);
 		virtual ~GridStringCell();
 	public:
 		virtual int CompareTo(GridCell *cell);
@@ -283,20 +286,20 @@ namespace OwLib
 		virtual float GetFloat();
 		virtual int GetInt();
 		virtual _int64 GetLong();
-		virtual String GetString();
-		virtual void SetString(const String& value);
+		virtual wstring GetString();
+		virtual void SetString(const wstring& value);
 	};
 
-	class GridPasswordCell : public GridStringCell
+	class  GridPasswordCell : public GridStringCell
 	{
 	public:
 		GridPasswordCell();
 		virtual ~GridPasswordCell();
 	public:
-		virtual String GetPaintText();
+		virtual wstring GetPaintText();
 	};
 
-	class GridTextBoxCell: public GridControlCell
+	class  GridTextBoxCell: public GridControlCell
 	{
 	public:
 		GridTextBoxCell();

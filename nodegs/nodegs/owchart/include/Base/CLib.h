@@ -10,6 +10,7 @@
 *******************************************************************************/
 
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "CPaint.h"
 #include "CMathLib.h"

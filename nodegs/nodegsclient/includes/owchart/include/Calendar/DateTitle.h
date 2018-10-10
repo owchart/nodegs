@@ -11,15 +11,16 @@
 #ifndef __DATETITLE_H__
 #define __DATETITLE_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Button\\Button.h"
 #include "Calendar.h"
 
 namespace OwLib
 {
-	class CalendarA;
+	class  CalendarA;
 
-	class DateTitle : public ButtonA
+	class  DateTitle : public ButtonA
 	{
 	protected:
 		CalendarA *m_calendar;
@@ -29,7 +30,7 @@ namespace OwLib
 		virtual CalendarA* GetCalendar();
 		virtual void SetCalendar(CalendarA *calendar);
 	public:
-		virtual String GetControlType();
+		virtual wstring GetControlType();
 		virtual void OnClick(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnPaintForeground(CPaint *paint, const RECT& clipRect);
 	};

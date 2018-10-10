@@ -12,6 +12,7 @@
 #ifndef __TABCONTROL_H__
 #define __TABCONTROL_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Base\\CStr.h"
 #include "..\\Layout\\Div.h"
@@ -19,7 +20,7 @@
 
 namespace OwLib
 {
-	typedef enum TabPageLayout
+	typedef enum  TabPageLayout
 	{
 		TabPageLayout_Bottom,
 		TabPageLayout_Left,
@@ -27,9 +28,9 @@ namespace OwLib
 		TabPageLayout_Top
 	};
 	
-	class TabPageA;
+	class  TabPageA;
 
-	class TabControlA:public DivA
+	class  TabControlA:public DivA
 	{
 	private:
 		int m_timerID;
@@ -54,10 +55,11 @@ namespace OwLib
 		virtual void SetUseAnimation(bool useAnimation);
 	public:
 		virtual void AddControl(ControlA *control);
-		virtual String GetControlType();
+		virtual wstring GetControlType();
 		virtual void ClearControls();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual vector<wstring> GetEventNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual void InsertControl(int index, ControlA *control);
         virtual void OnDragTabHeaderBegin(TabPageA *tabPage);
         virtual void OnDragTabHeaderEnd(TabPageA *tabPage);
@@ -66,7 +68,7 @@ namespace OwLib
 		virtual void OnSelectedTabPageChanged();
 		virtual void OnTimer(int timerID);
 		virtual void RemoveControl(ControlA *control);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 		virtual void Update();
 	};
 }

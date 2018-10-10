@@ -1,7 +1,7 @@
 package nodegs.base;
 import nodegs.service.DataCenter;
-import gaia.owchart.owchart_android.Base.*;
-import gaia.owchart.owchart_android.Chart.*;
+import owchart.owlib.Base.*;
+import owchart.owlib.Chart.*;
 import java.io.*;
 import java.net.*;
 import java.net.ServerSocket;

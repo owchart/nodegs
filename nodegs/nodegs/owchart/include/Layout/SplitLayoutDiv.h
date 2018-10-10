@@ -12,6 +12,7 @@
 #ifndef __SPLITLAYOUTDIV_H__
 #define __SPLITLAYOUTDIV_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Button\\Button.h"
 #include "Div.h"
@@ -20,7 +21,7 @@
 
 namespace OwLib
 {
-	class SplitLayoutDivA : public LayoutDivA
+	class  SplitLayoutDivA : public LayoutDivA
 	{
 	protected:
 		ControlA *m_firstControl;
@@ -41,14 +42,14 @@ namespace OwLib
 		virtual void SetSplitMode(SizeTypeA splitMode);
 		virtual ButtonA* GetSplitter();
 	public:
-		virtual String GetControlType();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual wstring GetControlType();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		void SplitLayoutDivA::OnSplitterDragging();
 		virtual void OnLoad();
 		virtual bool OnResetLayout();
 		virtual void Update();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 

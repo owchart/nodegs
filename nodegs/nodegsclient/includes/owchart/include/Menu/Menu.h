@@ -12,19 +12,21 @@
 #ifndef __MENU_H__
 #define __MENU_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Layout\\LayoutDiv.h"
 #include "MenuItem.h"
 
 namespace OwLib
 {
-	class MenuItemA;
+	class  MenuItemA;
 
-	typedef void (*MenuItemMouseEvent)(void*, MenuItemA*, const POINT& mp, MouseButtonsA button, int clicks, int delta, void*);
+	typedef  void (*MenuItemMouseEvent)(void*, MenuItemA*, const POINT& mp, MouseButtonsA button, int clicks, int delta, void*);
 
-	class MenuA : public LayoutDivA
+	class  MenuA : public LayoutDivA
 	{
-	private:
+	protected:
+		bool m_autoHide;
 		int m_timerID;
 	protected:
 		MenuItemA *m_parentItem;
@@ -39,6 +41,8 @@ namespace OwLib
 		vector<MenuItemA*> m_items;
 		MenuA();
 		virtual ~MenuA();
+		bool AutoHide();
+		void SetAutoHide(bool autoHide);
 		MenuItemA* GetParentItem();
 		void SetParentItem(MenuItemA *parentItem);
 		bool IsPopup();
@@ -47,10 +51,11 @@ namespace OwLib
 		void AddItem(MenuItemA *item);
 		void ClearItems();
 		virtual MenuA* CreateDropDownMenu();
-		virtual String GetControlType();
+		virtual wstring GetControlType();
+		virtual vector<wstring> GetEventNames();
 		vector<MenuItemA*> GetItems();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		void InsertItem(int index, MenuItemA *item);
 		virtual bool OnAutoHide();
 		virtual void OnLoad();
@@ -60,7 +65,7 @@ namespace OwLib
 		virtual void OnTimer(int timerID);
 		virtual void OnVisibleChanged();
 		void RemoveItem(MenuItemA *item);
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 

@@ -12,6 +12,7 @@
 #ifndef __TABPAGE_H__
 #define __TABPAGE_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Layout\\Div.h"
 #include "..\\Button\\Button.h"
@@ -19,9 +20,9 @@
 
 namespace OwLib
 {
-	class TabControlA;
+	class  TabControlA;
 
-	class TabPageA:public DivA
+	class  TabPageA:public DivA
 	{
 	protected:
         ControlEvent m_dragHeaderBeginEvent;
@@ -47,12 +48,12 @@ namespace OwLib
 		virtual TabControlA* GetTabControl();
 		virtual void SetTabControl(TabControlA *tabControl);
 	public:
-		virtual String GetControlType();
-		virtual void GetProperty(const String& name, String *value, String *type);
-		virtual vector<String> GetPropertyNames();
+		virtual wstring GetControlType();
+		virtual void GetProperty(const wstring& name, wstring *value, wstring *type);
+		virtual vector<wstring> GetPropertyNames();
 		virtual void OnLoad();
 		virtual void OnTextChanged();
-		virtual void SetProperty(const String& name, const String& value);
+		virtual void SetProperty(const wstring& name, const wstring& value);
 	};
 }
 

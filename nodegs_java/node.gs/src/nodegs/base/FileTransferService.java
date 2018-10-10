@@ -3,7 +3,7 @@ package nodegs.base;
 //*************************************************************************************\
 //*                                                                                      *
 
-import gaia.owchart.owchart_android.Base.RefObject;
+import owchart.owlib.Base.RefObject;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;

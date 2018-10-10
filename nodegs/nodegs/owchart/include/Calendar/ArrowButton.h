@@ -11,6 +11,7 @@
 #ifndef __ARROWBUTTON_H__
 #define __ARROWBUTTON_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "..\\Button\\Button.h"
 #include "Calendar.h"
@@ -18,9 +19,9 @@
 
 namespace OwLib
 {
-	class CalendarA;
+	class  CalendarA;
 
-	class ArrowButton:public ButtonA
+	class  ArrowButton:public ButtonA
 	{
 	protected:
 		CalendarA *m_calendar;
@@ -33,7 +34,7 @@ namespace OwLib
 		virtual bool IsToLast();
 		virtual void SetToLast(bool toLast);
 	public:
-		virtual String GetControlType();
+		virtual wstring GetControlType();
 		virtual void OnClick(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnPaintForeground(CPaint *paint, const RECT& clipRect);
 	};

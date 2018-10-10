@@ -11,6 +11,7 @@
 #ifndef __CMATHLIB_H__
 #define __CMATHLIB_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #pragma comment(lib,"owmath.lib")
 

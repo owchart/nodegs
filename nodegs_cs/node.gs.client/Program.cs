@@ -11,9 +11,11 @@ namespace node.gs
     {
         static void Main(string[] args)
         {
-            HttpPostService h = new HttpPostService();
-            String str = h.Post("http://192.168.88.101:8084/cashoutinmanagerservice?accessToken=0&function=getcashinoutprice&traderid=TA0000NG", "");
-            DataCenter.StartService();
+            LoginService loginService = new LoginService();
+            BaseService.AddService(loginService);
+            int socketID = BaseService.Connect("127.0.0.1", 16666);
+            loginService.SocketID = socketID;
+            loginService.Login("21212", "212112", 0);
             Console.ReadLine();
         }
     }

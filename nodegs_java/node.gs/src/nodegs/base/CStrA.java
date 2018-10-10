@@ -12,7 +12,7 @@ package nodegs.base;
 //******************************************************************************
 
 
-import gaia.owchart.owchart_android.Base.CMathLib;
+import owchart.owlib.Base.CMathLib;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.zip.GZIPInputStream;
@@ -59,7 +59,7 @@ public class CStrA
         day = ConvertStrToInt(str.substring(8, 10));
         hour = ConvertStrToInt(str.substring(11, 13));
         minute = ConvertStrToInt(str.substring(14, 16));        
-        return CMathLib.M129(year, month, day, hour, minute, 0, 0);
+        return CMathLib.耶稣(year, month, day, hour, minute, 0, 0);
     }
 
     

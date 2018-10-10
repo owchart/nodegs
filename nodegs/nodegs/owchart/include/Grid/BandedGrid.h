@@ -12,6 +12,7 @@
 #ifndef __BANDEDGRID_H__
 #define __BANDEDGRID_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "GridEnums.h"
 #include "BandedGridColumn.h"
@@ -20,10 +21,10 @@
 
 namespace OwLib
 {
-	class BandedGridColumn;
-	class GridBand;
+	class  BandedGridColumn;
+	class  GridBand;
 
-	class BandedGridA : public GridA
+	class  BandedGridA : public GridA
 	{
 	protected:
 		int GetAllVisibleBandsWidth();
@@ -38,7 +39,7 @@ namespace OwLib
 		virtual void ClearColumns();
 		vector<GridBand*> GetBands();
 		virtual int GetContentWidth();
-		virtual String GetControlType();
+		virtual wstring GetControlType();
 		void InsertBand(int index, GridBand *band);
 		virtual void OnSetEmptyClipRegion();
 		void RemoveBand(GridBand *band);

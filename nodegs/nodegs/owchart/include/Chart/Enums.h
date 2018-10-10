@@ -11,11 +11,12 @@
 #ifndef __ENUMS_H__
 #define __ENUMS_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 
 namespace OwLib
 {
-	typedef enum ActionType
+	typedef enum  ActionType
 	{
 		ActionType_AT1 = 1,
 		ActionType_AT2 = 2,
@@ -25,19 +26,19 @@ namespace OwLib
 		ActionType_NO = -1
 	};
 
-	typedef enum AttachVScale
+	typedef enum  AttachVScale
 	{
 		AttachVScale_Left,
 		AttachVScale_Right
 	};
 
-	typedef enum BarStyle
+	typedef enum  BarStyle
 	{
 		BarStyle_Line,
 		BarStyle_Rect
 	};
 
-	typedef enum CandleStyle
+	typedef enum  CandleStyle
 	{
 		CandleStyle_American,
 		CandleStyle_CloseLine,
@@ -45,13 +46,13 @@ namespace OwLib
 		CandleStyle_Tower
 	};
 
-	typedef enum CrossLineMoveMode
+	typedef enum  CrossLineMoveMode
 	{
 		CrossLineMoveMode_AfterClick,
 		CrossLineMoveMode_FollowMouse
 	};
 
-	typedef enum DateType
+	typedef enum  DateType
 	{
 		DateType_Day = 2,
 		DateType_Hour = 3,
@@ -62,19 +63,19 @@ namespace OwLib
 		DateType_Year = 0
 	};
 
-	typedef enum HScaleType
+	typedef enum  HScaleType
 	{
 		HScaleType_Date,
 		HScaleType_Number
 	};
 
-	typedef enum NumberStyle
+	typedef enum  NumberStyle
 	{
 		NumberStyle_Standard,
 		NumberStyle_Underline
 	};
 
-	typedef enum PolylineStyle
+	typedef enum  PolylineStyle
 	{
 		PolylineStyle_Cycle,
 		PolylineStyle_DashLine,
@@ -82,7 +83,7 @@ namespace OwLib
 		PolylineStyle_SolidLine
 	};
 
-	typedef enum ScrollType
+	typedef enum  ScrollType
 	{
 		ScrollType_None,
 		ScrollType_Left,
@@ -91,13 +92,13 @@ namespace OwLib
 		ScrollType_ZoomOut
 	};
 
-	typedef enum SelectPoint
+	typedef enum  SelectPoint
 	{
 		SelectPoint_Ellipse,
 		SelectPoint_Rect
 	};
 
-	typedef enum TextMode
+	typedef enum  TextMode
 	{
 		TextMode_Field,
 		TextMode_Full,
@@ -105,13 +106,13 @@ namespace OwLib
 		TextMode_Value
 	};
 
-	typedef enum VScaleSystem
+	typedef enum  VScaleSystem
 	{
 		VScaleSystem_Logarithmic,
 		VScaleSystem_Standard
 	};
 
-	typedef enum VScaleType
+	typedef enum  VScaleType
 	{
 		VScaleType_Divide,
 		VScaleType_EqualDiff,

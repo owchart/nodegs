@@ -11,12 +11,13 @@
 #ifndef __HSCROLLBAR_H__
 #define __HSCROLLBAR_H__
 #pragma once
+
 #include "..\\..\\stdafx.h"
 #include "ScrollBar.h"
 
 namespace OwLib
 {
-	class HScrollBarA:public ScrollBarA
+	class  HScrollBarA:public ScrollBarA
 	{
 	protected:
         ControlMouseEvent m_backButtonMouseDownEvent;
@@ -26,7 +27,7 @@ namespace OwLib
 	public:
 		HScrollBarA();
 		virtual ~HScrollBarA();
-		virtual String GetControlType();
+		virtual wstring GetControlType();
 		void OnBackButtonMouseDown(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		void OnBackButtonMouseUp(const POINT& mp, MouseButtonsA button, int clicks, int delta);
 		virtual void OnDragScroll();
